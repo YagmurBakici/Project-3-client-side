@@ -9,7 +9,7 @@ import { Switch, Route } from "react-router-dom";
 
 export default class App extends Component {
   render() {
-    console.log("Hello");
+    console.log("Hello x2");
     return (
       <div className="App">
         <Nav />
