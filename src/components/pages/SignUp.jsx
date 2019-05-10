@@ -1,62 +1,40 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-// import AuthService from "./../auth/ajax";
-
-export default class SignUp extends Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    mail: "",
-    password: ""
-  };
-=======
 import AuthService from "./../auth/ajax";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class SignUp extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {firstName:"",lastName:"",mail:"",password:""};
-    this.service = new AuthService()
+    this.state = { firstName: "", lastName: "", mail: "", password: "" };
+    this.service = new AuthService();
   }
->>>>>>> 627871696594386b5805fe5b04a8b4d217e8f3d7
 
   handleSubmit = evt => {
     evt.preventDefault();
-<<<<<<< HEAD
-    console.log(evt);
-  };
-
-  handleInput = evt => {
-    evt.preventDefault();
-    console.log(evt);
-  };
-=======
     const firstName = this.state.firstName;
     const lastName = this.state.lastName;
     const mail = this.state.mail;
     const password = this.state.password;
-  
-    this.service.signup(firstName,lastName,mail, password)
-    .then( res => {
-      console.log(res)
+
+    this.service
+      .signup(firstName, lastName, mail, password)
+      .then(res => {
+        console.log(res);
         this.setState({
-            firstName: "", 
-            lastName:"",
-            mail:"",
-            password: ""
+          firstName: "",
+          lastName: "",
+          mail: "",
+          password: ""
         });
         // this.props.getUser(response)
-    })
-    .catch( error => console.log(error) )
-  }
-  
-  handleInput = (evt) => {  
-    const {name, value} = evt.target;
-    this.setState({[name]: value});
-  }
+      })
+      .catch(error => console.log(error));
+  };
 
->>>>>>> 627871696594386b5805fe5b04a8b4d217e8f3d7
+  handleInput = evt => {
+    const { name, value } = evt.target;
+    this.setState({ [name]: value });
+  };
 
   render() {
     return (
