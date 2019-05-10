@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBox from "./../partials/SearchBox";
 import Boxes from "./../partials/Boxes";
+import InitalForm from "./../InitalForm";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
         you feel quickly at home wherever you are in the world.
         <br /> Easier, faster, cheaper.
       </p>
-
+      <InitalForm />
       <p className="steps">
         <strong>Step 1:</strong> Type your futur address
         <br /> <strong>Step 2:</strong> Choose the services that you need
