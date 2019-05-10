@@ -6,7 +6,8 @@ import "./App.css";
 import SignUp from "./components/pages/SignUp";
 import Contact from "./components/pages/Contact";
 import LogIn from "./components/pages/LogIn";
-import { Switch, Route } from "react-router-dom";
+import AllServices from "./components/pages/AllServices";
+import { Switch, Route, Link } from "react-router-dom";
 
 export default class App extends Component {
   render() {
@@ -15,9 +16,10 @@ export default class App extends Component {
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/allservices" component={AllServices} />
           <Route path="/contact" component={Contact} />
-          <Route path="/LogIn" component={LogIn} />
-          <Route path="/SignUp" component={SignUp} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
         </Switch>
       </div>
     );

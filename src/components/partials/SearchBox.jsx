@@ -10,7 +10,7 @@ class SearchBox extends Component {
           <div className="control has-icons-left">
             <div className="select">
               <select>
-                <option selected>Country</option>
+                <option selected>City</option>
                 <option>Paris</option>
                 <option>Miami</option>
                 <option>Seoul</option>
