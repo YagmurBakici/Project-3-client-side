@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
 class SearchBox extends Component {
   render() {
@@ -16,9 +16,9 @@ class SearchBox extends Component {
                 <option>Seoul</option>
               </select>
             </div>
-            <div className="icon is-small is-left">
+            {/* <div className="icon is-small is-left">
               <FontAwesomeIcon icon={faGlobe} />
-            </div>
+            </div> */}
           </div>
         </div>
       </React.Fragment>

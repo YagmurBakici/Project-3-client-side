@@ -1,23 +1,38 @@
 import React, { Component } from "react";
 import AuthService from "./../auth/ajax";
+import {Link} from "react-router-dom";
 
 export default class SignUp extends Component {
-  state= {
-    firstName: "",
-    lastName: "",
-    mail: "",
-    password:""
+  constructor(props){
+    super(props);
+    this.state = {firstName:"",lastName:"",mail:"",password:""};
+    this.service = new AuthService()
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(evt)
+    const firstName = this.state.firstName;
+    const lastName = this.state.lastName;
+    const mail = this.state.mail;
+    const password = this.state.password;
+  
+    this.service.signup(firstName,lastName,mail, password)
+    .then( res => {
+      console.log(res)
+        this.setState({
+            firstName: "", 
+            lastName:"",
+            mail:"",
+            password: ""
+        });
+        // this.props.getUser(response)
+    })
+    .catch( error => console.log(error) )
   }
-
-  handleInput = (evt) => {
-    evt.preventDefault();
-    console.log(evt)
-
+  
+  handleInput = (evt) => {  
+    const {name, value} = evt.target;
+    this.setState({[name]: value});
   }
 
 
@@ -42,6 +57,9 @@ export default class SignUp extends Component {
           <button className="btn">Ok</button>
 
         </form>
+
+        <p>Already have an account ?</p>
+        <Link to={"/LogIn"}>Login</Link>
       </React.Fragment>
     );
   }
