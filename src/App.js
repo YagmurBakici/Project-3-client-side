@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "react-bulma-components";
 import Nav from "./components/partials/Nav";
 import Home from "./components/pages/Home";
 import "./App.css";

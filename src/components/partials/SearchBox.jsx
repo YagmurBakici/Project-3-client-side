@@ -1,18 +1,28 @@
 import React, { Component } from "react";
-// import { searchCities } from "./../api/APIhandler";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
-// we are listening to any change in the search box (input) and setting the state each time
 class SearchBox extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      queryString: ""
-    };
-  }
-
   render() {
-    return <input className="search-box" onChange={this.handleChange} />;
+    return (
+      <React.Fragment>
+        <div className="field">
+          <div className="control has-icons-left">
+            <div className="select">
+              <select>
+                <option selected>Country</option>
+                <option>Paris</option>
+                <option>Miami</option>
+                <option>Seoul</option>
+              </select>
+            </div>
+            <div className="icon is-small is-left">
+              <FontAwesomeIcon icon={faGlobe} />
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    );
   }
 }
 
