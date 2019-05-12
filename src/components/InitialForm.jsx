@@ -95,7 +95,7 @@ export default class InitialForm extends Component {
           max="2021-06-30"
           onChange={this.handleChange}
         />
-        <button>Next step</button>
+        <button className="btn">Next step</button>
       </form>
     );
   }
