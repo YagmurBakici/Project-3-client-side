@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+// <FontAwesomeIcon icon={faGlobe} />
 
 export default class InitialForm extends Component {
   constructor(props) {
@@ -37,7 +40,7 @@ export default class InitialForm extends Component {
   render() {
     const { city, nbAdults, nbChildren, arrivalDate } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <label htmlFor="city" className="label">
           Where are you moving to?
         </label>
@@ -45,14 +48,16 @@ export default class InitialForm extends Component {
           type="text"
           id="city"
           name="city"
-          className="input"
+          className="input is-info"
           onChange={this.handleChange}
         >
           <option value="" />
+
           <option>Paris</option>
           <option>Miami</option>
           <option>Seoul</option>
         </select>
+
         {/* cities.map(city => {
         <option>{city}</option>
         }) */}
@@ -64,7 +69,7 @@ export default class InitialForm extends Component {
           min="0"
           id="nbAdults"
           name="nbAdults"
-          className="input"
+          className="input is-info"
           onChange={this.handleChange}
         />
         <label htmlFor="nbChildren" className="label">
@@ -75,7 +80,7 @@ export default class InitialForm extends Component {
           min="0"
           id="nbChildren"
           name="nbChildren"
-          className="input"
+          className="input is-info"
           onChange={this.handleChange}
         />
         <label htmlFor="arrivalDate" className="label">
@@ -85,12 +90,12 @@ export default class InitialForm extends Component {
           type="date"
           id="arrivalDate"
           name="arrivalDate"
-          className="input"
+          className="input is-info"
           min="2018-"
           max="2021-06-30"
           onChange={this.handleChange}
         />
-        <button>Next step</button>
+        <button className="btn">Next step</button>
       </form>
     );
   }
