@@ -25,7 +25,7 @@ export default class SignUp extends Component {
             mail:"",
             password: ""
         });
-        // this.props.getUser(response)
+        this.props.getUser(res)
     })
     .catch( error => console.log(error) )
   }
