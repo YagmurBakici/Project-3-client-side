@@ -26,7 +26,7 @@ export default class Home extends Component {
               handle all your formalities
             </p>
           </div>
-          <img src="image.png" alt="logo de ouf" className="image" />
+          <img src="image.png" alt="logol" className="image" />
         </div>
 
         {/* <Boxes /> */}

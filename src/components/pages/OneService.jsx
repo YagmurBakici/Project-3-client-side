@@ -21,18 +21,6 @@ const OneService = ({ name, text, icon }) => {
           <div className="header"> {name}</div>
           <div className="content">{text}</div>
           <div className="actions">
-            {/* <Popup
-              // trigger={<button className="button"> More </button>}
-            //   position="top center"
-            //   closeOnDocumentClick
-            // >
-            //   <span>
-            //     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-            //     magni omnis delectus nemo, maxime molestiae dolorem numquam
-            //     mollitia, voluptate ea, accusamus excepturi deleniti ratione
-            //     sapiente! Laudantium, aperiam doloribus. Odit, aut.
-            //   </span>
-            // </Popup> */}
             <button
               className="button"
               onClick={() => {

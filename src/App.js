@@ -8,59 +8,65 @@ import Contact from "./components/pages/Contact";
 import LogIn from "./components/pages/LogIn";
 import AllServices from "./components/pages/AllServices";
 import { Switch, Route } from "react-router-dom";
-import {createBrowserHistory} from "history";
+import { createBrowserHistory } from "history";
 import AuthService from "./components/auth/ajax";
+import Profile from "./components/pages/Profile";
 
 const history = createBrowserHistory();
 export default class App extends Component {
-
-  constructor(props){
-    super(props)
-    this.state = {loggedInUser:null};
+  constructor(props) {
+    super(props);
+    this.state = { loggedInUser: null };
     this.service = new AuthService();
   }
 
-  fetchUser(){
-    if(this.state.loggedInUser === null){
-      this.service.loggedin()
+  fetchUser() {
+    if (this.state.loggedInUser === null) {
+      this.service
+        .loggedin()
         .then(response => {
-          this.setState({ 
-            loggedInUser : response
-            });
+          this.setState({
+            loggedInUser: response
+          });
         })
-        .catch(err =>{
+        .catch(err => {
           this.setState({
             loggedInUser: false
-          })
-        })
+          });
+        });
     }
   }
 
   logoutUser = () => {
-    this.service.logout()
-      .then(()=>{
-        this.setState({ loggedInUser: null  });
-        // this.props.getUser(null)
-      })
-  }
-
+    this.service.logout().then(() => {
+      this.setState({ loggedInUser: null });
+      // this.props.getUser(null)
+    });
+  };
 
   getTheUser = userObj => {
-    this.setState({ 
-      loggedInUser: userObj
-    }, () => { // ce callback est exec une fois le state set ....
-      console.log("lucky ?", this.state.loggedInUser) 
-      // console.log(this.history)
-      history.push("/toto")
-    });
-  }
+    this.setState(
+      {
+        loggedInUser: userObj
+      },
+      () => {
+        // ce callback est exec une fois le state set ....
+        console.log("lucky ?", this.state.loggedInUser);
+        // console.log(this.history)
+        history.push("/toto");
+      }
+    );
+  };
 
   render() {
-    this.fetchUser()
-    if(this.state.loggedInUser){
+    this.fetchUser();
+    if (this.state.loggedInUser) {
       return (
         <div className="App">
-          <Nav userInSession={this.state.loggedInUser}  logoutFromParent={this.logoutUser}/>
+          <Nav
+            userInSession={this.state.loggedInUser}
+            logoutFromParent={this.logoutUser}
+          />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/allservices" component={AllServices} />
@@ -71,13 +77,20 @@ export default class App extends Component {
     } else {
       return (
         <div className="App">
-          <Nav userInSession={this.state.loggedInUser}/>
+          <Nav userInSession={this.state.loggedInUser} />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/allservices" component={AllServices} />
             <Route path="/contact" component={Contact} />
-            <Route path="/login" render={(props)=><LogIn {...props} getUser={this.getTheUser}/>} />
-            <Route path="/signup" render={(props)=><SignUp {...props} getUser={this.getTheUser}/>}/>
+            <Route path="/Profile" component={Profile} />
+            <Route
+              path="/login"
+              render={props => <LogIn {...props} getUser={this.getTheUser} />}
+            />
+            <Route
+              path="/signup"
+              render={props => <SignUp {...props} getUser={this.getTheUser} />}
+            />
           </Switch>
         </div>
       );

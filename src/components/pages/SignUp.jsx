@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import AuthService from "./../auth/ajax";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class SignUp extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {firstName:"",lastName:"",mail:"",password:""};
+    this.state = { firstName: "", lastName: "", mail: "", password: "" };
     this.service = new AuthService();
-    console.log(this.props)
-    this.history = this.props.history
-   
-
+    console.log(this.props);
+    this.history = this.props.history;
   }
 
   handleSubmit = evt => {
@@ -19,28 +17,28 @@ export default class SignUp extends Component {
     const lastName = this.state.lastName;
     const mail = this.state.mail;
     const password = this.state.password;
-  
-    this.service.signup(firstName,lastName,mail, password)
-    .then( res => {
-      console.log(res)
-        this.setState({
-            firstName: "", 
-            lastName:"",
-            mail:"",
-            password: ""
-        });
-        this.props.getUser(res)
-        console.log(this.props)
-        this.history.push('/')
-    })
-    .catch( error => console.log(error) )
-  }
-  
-  handleInput = (evt) => {  
-    const {name, value} = evt.target;
-    this.setState({[name]: value});
-  }
 
+    this.service
+      .signup(firstName, lastName, mail, password)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          firstName: "",
+          lastName: "",
+          mail: "",
+          password: ""
+        });
+        this.props.getUser(res);
+        console.log(this.props);
+        this.history.push("/");
+      })
+      .catch(error => console.log(error));
+  };
+
+  handleInput = evt => {
+    const { name, value } = evt.target;
+    this.setState({ [name]: value });
+  };
 
   render() {
     return (

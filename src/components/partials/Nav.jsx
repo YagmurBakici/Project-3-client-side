@@ -1,17 +1,16 @@
-import React,{Component} from "react";
-import { NavLink, Link} from "react-router-dom";
-import  AuthService from "./../auth/ajax";
-export default class Nav extends Component{
-
-  constructor(props){
-    super(props)
-    this.state= {loggedInUser:null}
-    this.service = new AuthService()
+import React, { Component } from "react";
+import { NavLink, Link } from "react-router-dom";
+import AuthService from "./../auth/ajax";
+export default class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { loggedInUser: null };
+    this.service = new AuthService();
   }
-  
-  componentWillReceiveProps(nextProps){
-    console.log("iciiiiii", nextProps)
-    this.setState({...this.state, loggedInUser: nextProps["userInSession"]  });
+
+  componentWillReceiveProps(nextProps) {
+    console.log("iciiiiii", nextProps);
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
 
   // logoutUser = () => {
@@ -22,17 +21,21 @@ export default class Nav extends Component{
   //     })
   // }
 
-  render(){
-
+  render() {
     ////////////////////////////////////////////////
     /////////////IF LOGGED IN///////////////////////
     ////////////////////////////////////////////////
-    if(this.state.loggedInUser){
+    if (this.state.loggedInUser) {
       return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <NavLink exact to="/">
-              <img src="./../xpt.png" alt="logo" width="100rem" height="600rem" />
+              <img
+                src="./../xpt.png"
+                alt="logo"
+                width="100rem"
+                height="600rem"
+              />
             </NavLink>
             <a
               role="button"
@@ -64,7 +67,9 @@ export default class Nav extends Component{
                   </NavLink>
 
                   <Link to="/" className="button is-light">
-                  <button onClick={this.props.logoutFromParent}>Logout</button>
+                    <button onClick={this.props.logoutFromParent}>
+                      Logout
+                    </button>
                     {/* <button onClick={()=> this.logoutUser()}>Logout</button> */}
                   </Link>
                 </div>
@@ -72,17 +77,22 @@ export default class Nav extends Component{
             </div>
           </div>
         </nav>
-      ); 
+      );
 
-    ////////////////////////////////////////////////
-    /////////////IF NOT LOGGED//////////////////////
-    ////////////////////////////////////////////////
-    } else{
-      return(
+      ////////////////////////////////////////////////
+      /////////////IF NOT LOGGED//////////////////////
+      ////////////////////////////////////////////////
+    } else {
+      return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <NavLink exact to="/">
-              <img src="./../xpt.png" alt="logo" width="100rem" height="600rem" />
+              <img
+                src="./../xpt.png"
+                alt="logo"
+                width="100rem"
+                height="600rem"
+              />
             </NavLink>
             <a
               role="button"
@@ -105,6 +115,9 @@ export default class Nav extends Component{
               <NavLink to="/contact" className="navbar-item">
                 Contact
               </NavLink>
+              <NavLink to="/Profile" className="navbar-item">
+                Profile
+              </NavLink>
             </div>
             <div className="navbar-end">
               <div className="navbar-item">
@@ -121,7 +134,7 @@ export default class Nav extends Component{
             </div>
           </div>
         </nav>
-      )
+      );
     }
   }
 }

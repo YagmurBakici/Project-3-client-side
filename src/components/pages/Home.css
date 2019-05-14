@@ -25,7 +25,7 @@ button {
   padding: 0.5em 1em;
   outline: none;
   border: none;
-  background-color: hsl(229, 83%, 61%);
+  background-color: hsl(229, 100%, 77%);
   overflow: hidden;
   transition: color 0.4s ease-in-out;
 }
@@ -39,7 +39,7 @@ button::before {
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  background-color: #ee8667;
+  background-color: #f89f84;
   transform-origin: center;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.45s ease-in-out;
