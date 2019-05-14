@@ -1,0 +1,10 @@
+.check {
+  max-width: 170vh;
+  margin: auto;
+  border: 2px solid rgb(75, 151, 250);
+  padding: 40px;
+}
+.field {
+  max-width: 40vh;
+  margin: 40px auto;
+}

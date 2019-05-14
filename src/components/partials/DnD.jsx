@@ -1,29 +1,123 @@
-import React, { useCallback } from "react";
-import { useDropzone } from "react-dropzone";
-import "./DnD.css";
+import React, { Component } from "react";
 
-function Dropzone() {
-  const onDrop = useCallback(acceptedFiles => {
-    const reader = new FileReader();
-
-    reader.onabort = () => console.log("file reading was aborted");
-    reader.onerror = () => console.log("file reading has failed");
-    reader.onload = () => {
-      // Do whatever you want with the file contents
-      const binaryStr = reader.result;
-      console.log(binaryStr);
+class DnD extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      drag: false,
+      fileList: []
     };
+  }
 
-    acceptedFiles.forEach(file => reader.readAsBinaryString(file));
-  }, []);
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  handleDrop = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("droppıng", e.dataTransfer.files);
+    const files = Array.from(e.dataTransfer.files);
+    console.log(files);
+    const fileList = [];
+    files.forEach(file => fileList.push(file.name));
+    this.props.handleDnd(fileList);
 
-  return (
-    <div className="dnd" {...getRootProps()}>
-      <input {...getInputProps()} />
+    this.setState({ fileList: fileList });
+    this.setState({ drag: false });
+    // if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+    //   this.handleDrop(e.dataTransfer.files);
+    //   e.dataTransfer.clearData();
+    //   this.dragCounter = 0;
+    // }
 
-      <p>Drag and Drop your files here, or Click to select files</p>
-    </div>
-  );
+    return false;
+  };
+
+  dropRef = React.createRef();
+
+  handleDrag = e => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  handleDragIn = e => {
+    console.log("drag in");
+
+    e.preventDefault();
+    e.stopPropagation();
+    this.dragCounter++;
+    if (e.dataTransfer.items && e.dataTransfer.items.length > 0) {
+      this.setState({ drag: true });
+    }
+  };
+
+  handleDragOut = e => {
+    console.log("drag out");
+
+    e.preventDefault();
+    e.stopPropagation();
+    this.dragCounter--;
+    if (this.dragCounter === 0) {
+      this.setState({ drag: false });
+    }
+  };
+
+  componentDidMount() {
+    let div = this.dropRef.current;
+    div.addEventListener("dragenter", this.handleDragIn);
+    div.addEventListener("dragleave", this.handleDragOut);
+    div.addEventListener("dragover", this.handleDrag);
+    div.addEventListener("drop", this.handleDrop);
+  }
+  componentWillUnmount() {
+    let div = this.dropRef.current;
+    div.removeEventListener("dragenter", this.handleDragIn);
+    div.removeEventListener("dragleave", this.handleDragOut);
+    div.removeEventListener("dragover", this.handleDrag);
+    div.removeEventListener("drop", this.handleDrop);
+  }
+  render() {
+    console.log(this.props);
+
+    return (
+      <div
+        style={{
+          display: "inline-block",
+          border: "2px blue solid",
+          padding: "40px",
+          position: "relative"
+        }}
+        ref={this.dropRef}
+      >
+        {this.state.dragging && (
+          <div
+            style={{
+              border: "dashed grey 4px",
+              backgroundColor: "rgba(255,255,255,.8)",
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              zIndex: 9999
+            }}
+          >
+            ))}
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                right: 0,
+                left: 0,
+                textAlign: "center",
+                color: "grey",
+                fontSize: 36
+              }}
+            />
+            <div>drop here :</div>
+          </div>
+        )}
+        {this.props.children}
+        drag and drop
+      </div>
+    );
+  }
 }
-export default Dropzone;
+export default DnD;
