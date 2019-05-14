@@ -1,87 +1,138 @@
-import React from "react";
+import React, { Component } from "react";
+import Modal from "react-awesome-modal";
 import "./Contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-export default function Contact() {
-  return (
-    <div className="contact">
-      <div className="field">
-        <label className="label">Your Name:</label>
-        <div className="control has-icons-left has-icons-right">
-          <input
-            className="input is-success"
-            type="text"
-            placeholder="Username"
-          />
-          <span className="icon is-small is-left">
-            <FontAwesomeIcon icon={faUser} />
-          </span>
-          <span className="icon is-small is-right">
-            <i className="fas fa-check" />
-          </span>
-        </div>
-        <p className="help is-success">This username is available</p>
-      </div>
+export default class Examples extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
+  }
 
-      <div className="field">
-        <label className="label">Email: </label>
-        <p class="control has-icons-left has-icons-right">
-          <input class="input" type="email" placeholder="Email" />
-          <span class="icon is-small is-left">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check" />
-          </span>
-        </p>
-        <p className="help is-danger">This email is invalid</p>
-      </div>
+  openModal() {
+    this.setState({
+      visible: true,
+      email: " "
+    });
+  }
 
-      <div className="field">
-        <label className="label">Subject</label>
-        <div className="control">
-          <div className="select">
-            <select>
-              <option>Subject</option>
-              <option>Logement</option>
-              <option>Bank</option>
-              <option>Assurence</option>
-              <option>General Question</option>
-            </select>
+  closeModal() {
+    this.setState({
+      visible: false
+    });
+  }
+
+  render() {
+    return (
+      <section>
+        <div className="contact">
+          <div className="field">
+            <label className="label">Your Name:</label>
+            <div className="control has-icons-left has-icons-right">
+              <input
+                className="input is-success"
+                type="text"
+                placeholder="Username"
+              />
+              <span className="icon is-small is-left">
+                <FontAwesomeIcon icon={faUser} />
+              </span>
+              <span className="icon is-small is-right">
+                <i className="fas fa-check" />
+              </span>
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Email: </label>
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Email" />
+              <span class="icon is-small is-left">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check" />
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label className="label">Subject</label>
+            <div className="control">
+              <div className="select">
+                <select>
+                  <option>Subject</option>
+                  <option>Logement</option>
+                  <option>Bank</option>
+                  <option>Assurence</option>
+                  <option>General Question</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Message: </label>
+            <div className="control">
+              <textarea className="textarea" placeholder="Your text" />
+            </div>
+          </div>
+
+          <div className="field">
+            <div className="control">
+              <p>
+                <strong>You are already a client?</strong>{" "}
+              </p>
+              <label className="radio">
+                <input type="radio" name="question" />
+                Yes
+              </label>
+              <label className="radio">
+                <input type="radio" name="question" />
+                No
+              </label>
+            </div>
+          </div>
+
+          <div className="field is-grouped">
+            <div className="control">
+              <input
+                className="button is-link"
+                type="button"
+                value="Open"
+                onClick={() => this.openModal()}
+              />
+              <Modal
+                email={this.state.email}
+                visible={this.state.visible}
+                width="300"
+                height="100"
+                effect="fadeInUp"
+                onClickAway={() => this.closeModal()}
+              >
+                <div>
+                  <h1>
+                    Your email is sent! <br /> Thank you!
+                  </h1>
+
+                  <a
+                    href="javascript:void(0);"
+                    onClick={() => this.closeModal()}
+                  >
+                    Close
+                  </a>
+                </div>
+              </Modal>
+
+              {/* <button className="button is-link">Submit</button> */}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Message: </label>
-        <div className="control">
-          <textarea className="textarea" placeholder="Your text" />
-        </div>
-      </div>
-
-      <div className="field">
-        <div className="control">
-          <p>
-            <strong>You are already a client?</strong>{" "}
-          </p>
-          <label className="radio">
-            <input type="radio" name="question" />
-            Yes
-          </label>
-          <label className="radio">
-            <input type="radio" name="question" />
-            No
-          </label>
-        </div>
-      </div>
-
-      <div className="field is-grouped">
-        <div className="control">
-          <button className="button is-link">Submit</button>
-        </div>
-      </div>
-    </div>
-  );
+      </section>
+    );
+  }
 }
