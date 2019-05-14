@@ -7,7 +7,8 @@ export default class LogIn extends Component {
   constructor(props){
     super(props);
     this.state= {mail:"",password:""}
-    this.service = new AuthService()
+    this.service = new AuthService();
+    console.log(this.props)
   }
 
 
@@ -21,7 +22,8 @@ export default class LogIn extends Component {
          mail:"",
          password:""
         });
-        this.props.getUser(res)
+        this.props.getUser(res); // go up to APP.js and set userIsLoggedIn
+   
       })
       .catch(error => console.log(error))
   }
