@@ -15,7 +15,7 @@ const OneService = ({ name, text, icon }) => {
     >
       {close => (
         <div className="modal">
-          <a className="close" onClick={close}>
+          <a href="modal" className="close" onClick={close}>
             &times;
           </a>
           <div className="header"> {name}</div>
