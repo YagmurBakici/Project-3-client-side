@@ -8,11 +8,8 @@ import Contact from "./components/pages/Contact";
 import LogIn from "./components/pages/LogIn";
 import AllServices from "./components/pages/AllServices";
 import { Switch, Route } from "react-router-dom";
-<<<<<<< HEAD
-=======
 import {createBrowserHistory} from "history";
 import AuthService from "./components/auth/ajax";
->>>>>>> b8c52345f2931827d73763f9deabe102f7c01744
 
 const history = createBrowserHistory();
 export default class App extends Component {
