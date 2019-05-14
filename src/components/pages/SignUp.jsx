@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import AuthService from "./../auth/ajax";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default class SignUp extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = { firstName: "", lastName: "", mail: "", password: "" };
-    this.service = new AuthService();
+    this.state = {firstName:"",lastName:"",mail:"",password:""};
+    this.service = new AuthService()
   }
 
   handleSubmit = evt => {
@@ -15,26 +15,26 @@ export default class SignUp extends Component {
     const lastName = this.state.lastName;
     const mail = this.state.mail;
     const password = this.state.password;
-
-    this.service
-      .signup(firstName, lastName, mail, password)
-      .then(res => {
-        console.log(res);
+  
+    this.service.signup(firstName,lastName,mail, password)
+    .then( res => {
+      console.log(res)
         this.setState({
-          firstName: "",
-          lastName: "",
-          mail: "",
-          password: ""
+            firstName: "", 
+            lastName:"",
+            mail:"",
+            password: ""
         });
         // this.props.getUser(response)
-      })
-      .catch(error => console.log(error));
-  };
+    })
+    .catch( error => console.log(error) )
+  }
+  
+  handleInput = (evt) => {  
+    const {name, value} = evt.target;
+    this.setState({[name]: value});
+  }
 
-  handleInput = evt => {
-    const { name, value } = evt.target;
-    this.setState({ [name]: value });
-  };
 
   render() {
     return (

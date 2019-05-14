@@ -1,5 +1,6 @@
 import React from "react";
 import "./OneService.css";
+import AllServices from "./AllServices";
 
 const OneService = ({ name }) => {
   return (
