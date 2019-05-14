@@ -30,7 +30,7 @@ export default class SignUp extends Component {
             password: ""
         });
         this.props.getUser(res)
-        console.log(this.props)
+        console.log(this.history)
         this.history.push('/')
     })
     .catch( error => console.log(error) )
