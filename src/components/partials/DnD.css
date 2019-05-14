@@ -1,0 +1,8 @@
+.dnd {
+  max-width: 70vh;
+  margin: 40px auto;
+  border: 5px solid rgb(192, 215, 247);
+  background-color: aliceblue;
+  padding: 40px;
+  text-align: center;
+}

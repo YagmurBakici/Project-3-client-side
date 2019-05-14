@@ -29,12 +29,13 @@ export default class InitialForm extends Component {
     const userInfosAsJSON = JSON.stringify(this.state);
     console.log(userInfosAsJSON);
     window.localStorage.setItem("userInfos", userInfosAsJSON);
+    console.log("heeeeeeeeeeeere", this.props.props.history);
     // window.location = "/allservices";
     this.props.props.history.push("/allservices");
     // stocker dans le localStorage au fur et à mesure
 
     console.log("submitteeeeed", this.state);
-    console.log(JSON.parse(window.localStorage.userInfos).city);
+    //console.log(JSON.parse(window.localStorage.userInfos).city);
   };
 
   render() {

@@ -27,13 +27,13 @@ export default function Contact() {
 
       <div className="field">
         <label className="label">Email: </label>
-        <p class="control has-icons-left has-icons-right">
-          <input class="input" type="email" placeholder="Email" />
-          <span class="icon is-small is-left">
+        <p className="control has-icons-left has-icons-right">
+          <input className="input" type="email" placeholder="Email" />
+          <span className="icon is-small is-left">
             <FontAwesomeIcon icon={faEnvelope} />
           </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check" />
+          <span className="icon is-small is-right">
+            <i className="fas fa-check" />
           </span>
         </p>
         <p className="help is-danger">This email is invalid</p>
