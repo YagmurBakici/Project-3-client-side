@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import Boxes from "./../partials/Boxes";
-import InitialForm from "./../InitialForm";
+// import InitialForm from "./../InitialForm";
 import "./Home.css";
 
 export default class Home extends Component {
@@ -30,7 +30,7 @@ export default class Home extends Component {
         </div>
 
         {/* <Boxes /> */}
-        <InitialForm props={this.props} />
+        {/* <InitialForm props={this.props} /> */}
       </div>
     );
   }

@@ -6,9 +6,9 @@ import {Link} from "react-router-dom";
 export default class LogIn extends Component {
   constructor(props){
     super(props);
-    this.state= {mail:"",password:""}
+    this.state= {mail:"thanh.ngu94@gmail.com",password:"1234567890"}
     this.service = new AuthService();
-    console.log(this.props)
+    // console.log(this.props)
   }
 
 
@@ -40,9 +40,9 @@ export default class LogIn extends Component {
       <form onSubmit={this.handleSubmit}>
         <h1>LOG IN PAGE</h1>
         <label htmlFor="">Mail</label>
-        <input name="mail" type="text" onChange={this.handleInput} />
+        <input name="mail" type="text" value={this.state.mail} onChange={this.handleInput} />
         <label htmlFor="">Password</label>
-        <input name="password" type="text" onChange={this.handleInput} />
+        <input name="password" type="text" value={this.state.password} onChange={this.handleInput} />
         <button>ok</button>
       </form>
       <p>You don't have an account ?</p>
