@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Boxes from "./../partials/Boxes";
+// import Boxes from "./../partials/Boxes";
 import InitialForm from "./../InitialForm";
 import "./Home.css";
 
@@ -8,7 +8,7 @@ export default class Home extends Component {
     return (
       <div>
         <div className="home">
-          <p className="intro">
+          <div className="intro">
             XPT is designed to provide you with all the resources you need to
             ease you into life in a new city. Our aim is to make things easier
             for you as you plan your move and settle into your new life in.XPT
@@ -25,8 +25,8 @@ export default class Home extends Component {
               <br /> <strong>Step 5: </strong> Now you can go and relax, we will
               handle all your formalities
             </p>
-          </p>
-          <img src="image.png" alt="image" className="image" />
+          </div>
+          <img src="image.png" alt="logo de ouf" className="image" />
         </div>
 
         {/* <Boxes /> */}

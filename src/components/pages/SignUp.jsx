@@ -6,7 +6,11 @@ export default class SignUp extends Component {
   constructor(props){
     super(props);
     this.state = {firstName:"",lastName:"",mail:"",password:""};
-    this.service = new AuthService()
+    this.service = new AuthService();
+    console.log(this.props)
+    this.history = this.props.history
+   
+
   }
 
   handleSubmit = evt => {
@@ -25,7 +29,9 @@ export default class SignUp extends Component {
             mail:"",
             password: ""
         });
-        // this.props.getUser(response)
+        this.props.getUser(res)
+        console.log(this.props)
+        this.history.push('/')
     })
     .catch( error => console.log(error) )
   }

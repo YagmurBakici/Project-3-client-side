@@ -2,7 +2,7 @@
 //////// ALL SERVICES PAGE CONTAINER ////////////
 ////////////////////////////////////////////////
 
-import React from "react";
+import React, { Component } from "react";
 import OneService from "./OneService";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faUniversity } from "@fortawesome/free-solid-svg-icons";
