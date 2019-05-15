@@ -72,7 +72,13 @@ class App extends Component {
         // ce callback est exec une fois le state set ....
         // console.log("lucky ?", this.state.loggedInUser)
         // console.log(this.state.loggedInUser);
-        this.props.history.push("/profile");
+        console.log("logged user ",userObj.role)
+        if (userObj.role === "admin"){
+          this.props.history.push("/admin");
+        } else {
+          this.props.history.push("/profile")
+        }
+        
       }
     );
   };

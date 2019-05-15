@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 export default class LogIn extends Component {
   constructor(props){
     super(props);
-    this.state= {mail:"thanh.ngu94@gmail.com",password:"1234567890"}
+    this.state= {mail:"",password:""}
     this.service = new AuthService();
     // console.log(this.props)
   }
