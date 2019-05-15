@@ -42,7 +42,7 @@ export default class LogIn extends Component {
         <label htmlFor="">Mail</label>
         <input name="mail" type="text" value={this.state.mail} onChange={this.handleInput} />
         <label htmlFor="">Password</label>
-        <input name="password" type="text" value={this.state.password} onChange={this.handleInput} />
+        <input name="password" type="password" value={this.state.password} onChange={this.handleInput} />
         <button>ok</button>
       </form>
       <p>You don't have an account ?</p>
