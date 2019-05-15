@@ -43,7 +43,7 @@ export default class Home extends Component {
         <RegisterSteps
           step="1"
           history={this.props.history}
-          nextUrl="/all-services"
+          nextUrl="/allservices"
         />
         {/*  */}
       </div>

@@ -30,7 +30,7 @@ export default class SignUp extends Component {
         });
         this.props.getUser(res);
         console.log(this.history);
-        this.history.push("/");
+        this.history.push("/profile");
       })
       .catch(error => console.log(error));
   };
