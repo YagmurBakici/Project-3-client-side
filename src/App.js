@@ -8,9 +8,10 @@ import Contact from "./components/pages/Contact";
 import LogIn from "./components/pages/LogIn";
 import AllServices from "./components/pages/AllServices";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { createBrowserHistory } from "history";
+// import { createBrowserHistory } from "history";
 import AuthService from "./components/auth/ajax";
 import Profile from "./components/pages/Profile";
+import Admin from "./components/pages/Admin";
 import { withRouter } from "react-router-dom";
 
 // import {createBrowserHistory} from "history";
@@ -62,7 +63,7 @@ class App extends Component {
   };
 
   getTheUser = userObj => {
-    console.log("at get the user, userObj");
+    // console.log("at get the user, userObj")
     this.setState(
       {
         loggedInUser: userObj
@@ -70,8 +71,13 @@ class App extends Component {
       () => {
         // ce callback est exec une fois le state set ....
         // console.log("lucky ?", this.state.loggedInUser)
-        console.log(this.state.loggedInUser);
-        this.props.history.push("/profile");
+        // console.log(this.state.loggedInUser);
+        console.log("logged user ", userObj.role);
+        if (userObj.role === "admin") {
+          this.props.history.push("/admin");
+        } else {
+          this.props.history.push("/profile");
+        }
       }
     );
   };
@@ -85,18 +91,35 @@ class App extends Component {
           logoutFromParent={this.logoutUser}
         />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <Home {...props} logoutFromParent={this.logoutUser} />;
+            }}
+          />
           <Route
             path="/profile"
             render={props => {
               return !this.state.loggedInUser ? (
                 <Redirect to="/login" />
               ) : (
-                <Profile {...props} getUser={this.getTheUser} />
+                <Profile {...props} user={this.state.loggedInUser} />
               );
             }}
           />
-          <Route path="/all-services" component={AllServices} />
+          <Route
+            path="/admin"
+            render={props => {
+              return this.state.loggedInUser &&
+                this.state.loggedInUser.role === "admin" ? (
+                <Admin {...props} user={this.state.loggedInUser} />
+              ) : (
+                <Redirect to="/?status=unauthorized" />
+              );
+            }}
+          />
+          <Route path="/allservices" component={AllServices} />
           <Route path="/contact" component={Contact} />
           <Route
             path="/login"

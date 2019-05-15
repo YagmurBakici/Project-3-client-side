@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import AuthService from "./../auth/ajax";
 export default class Nav extends Component {
   constructor(props) {
@@ -9,13 +9,15 @@ export default class Nav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("received props for user status", nextProps);
+    // console.log("received props for user status", nextProps);
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
 
   render() {
-    console.log("PROP USER IN SESSION", this.props);
-    // console.log(this.props.userInSession)
+    // console.log("PROP USER IN SESSION", this.props.userInSession.role);
+    if (this.props.userInSession){
+    console.log("hello prop",this.props.userInSession.role)
+    }
     return (
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
@@ -49,11 +51,10 @@ export default class Nav extends Component {
               <div className="buttons">
                 {this.props.userInSession ? (
                   <React.Fragment>
-                    <NavLink className="button is-primary" to="/profile">
-                      Profile
-                    </NavLink>
+                    {this.props.userInSession.role === "admin" && <NavLink className="button is-primary" to="/admin">Admin</NavLink>}
+                    {this.props.userInSession.role === "user" && <NavLink className="button is-primary" to="/profile">Profile</NavLink>}
 
-                    <button onClick={this.props.logoutFromParent}>
+                    <button className="button is-danger" onClick={this.props.logoutFromParent}>
                       Logout
                     </button>
                   </React.Fragment>

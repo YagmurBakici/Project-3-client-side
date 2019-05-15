@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom"
 import Checkbox from "react-simple-checkbox";
 import DnD from "../partials/DnD";
 
 export default class Profile extends Component {
+  
+  constructor(props){
+    super(props);
+    // console.log("super props ",props)
+    // console.log("props role",props.user.role)
+  }
   state = {
     fileList: []
   };
@@ -15,6 +22,7 @@ export default class Profile extends Component {
     return (
       <div>
         <h1>PROFILE</h1>
+        {/* {this.props.user.role === "admin" && <Link to="/admin">go to admin panel</Link>} */}
         {this.state.fileList.map((file, index) => (
           <p key={index}>{file}</p>
         ))}
