@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 import Checkbox from "react-simple-checkbox";
 import DnD from "../partials/DnD";
 
 export default class Profile extends Component {
-  
-  constructor(props){
-    super(props);
-    // console.log("super props ",props)
-    // console.log("props role",props.user.role)
-  }
+  // constructor(props) {
+  //   super(props);
+  //   console.log("super props ",props)
+  //   console.log("props role",props.user.role)
+  // }
   state = {
     fileList: []
   };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import StepOne from "./FormUserInfos";
 import StepTwo from "./StepServices";
-import OneService from "./../pages/OneService";
+// import OneService from "./../pages/OneService";
 
 export default class RegisterSteps extends Component {
   constructor(props) {
