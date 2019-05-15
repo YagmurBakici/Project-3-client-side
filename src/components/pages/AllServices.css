@@ -1,0 +1,44 @@
+.container-services {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+}
+li.servicesBtn {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(229, 100%, 77%);
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+li.servicesBtn::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #f89f84;
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.45s ease-in-out;
+}
+
+li.servicesBtn:hover {
+  cursor: pointer;
+  color: #f2f9ff;
+}
+
+li.servicesBtn:hover::before {
+  transform: translate(-50%, -50%) scale(15);
+}

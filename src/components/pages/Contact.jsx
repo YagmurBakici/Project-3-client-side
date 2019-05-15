@@ -20,27 +20,11 @@ export default class Examples extends Component {
     });
   }
 
-<<<<<<< HEAD
   closeModal() {
     this.setState({
       visible: false
     });
   }
-=======
-      <div className="field">
-        <label className="label">Email: </label>
-        <p className="control has-icons-left has-icons-right">
-          <input className="input" type="email" placeholder="Email" />
-          <span className="icon is-small is-left">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </span>
-          <span className="icon is-small is-right">
-            <i className="fas fa-check" />
-          </span>
-        </p>
-        <p className="help is-danger">This email is invalid</p>
-      </div>
->>>>>>> 392f148a0ddbf1665f4e60d45426d4ff508fd84a
 
   render() {
     return (

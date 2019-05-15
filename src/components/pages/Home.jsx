@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 // import Boxes from "./../partials/Boxes";
 // import InitialForm from "./../InitialForm";
+import RegisterSteps from "./../flowManager/RegisterSteps";
 import "./Home.css";
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
@@ -31,6 +36,13 @@ export default class Home extends Component {
 
         {/* <Boxes /> */}
         {/* <InitialForm props={this.props} /> */}
+        {/*  */}
+        <RegisterSteps
+          step="1"
+          history={this.props.history}
+          nextUrl="/all-services"
+        />
+        {/*  */}
       </div>
     );
   }

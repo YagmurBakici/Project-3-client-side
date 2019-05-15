@@ -2,31 +2,42 @@
 //////// ALL SERVICES PAGE CONTAINER ////////////
 ////////////////////////////////////////////////
 
-import React from "react";
-import OneService from "./OneService";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { faUniversity } from "@fortawesome/free-solid-svg-icons";
-import { faPiggyBank } from "@fortawesome/free-solid-svg-icons";
-import { faNotesMedical } from "@fortawesome/free-solid-svg-icons";
+import React, { Component } from "react";
+import RegisterSteps from "./../flowManager/RegisterSteps";
+import "./AllServices.css";
 
-export default function AllServices({ props }) {
-  return (
-    <React.Fragment>
-      <h1>Step 2 : Services</h1>
-      <div className="container-services">
-        <OneService
-          name="Housing"
-          icon={faHome}
-          text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia dolores voluptate sapiente non sint eius. Saepe cumque dolorem exercitationem explicabo."
+export default class AllServices extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questions: [{ id: "fdsd", title: "" }],
+      displayQuestions: false
+    };
+  }
+
+  displayQuestion = () => {
+    this.setState({
+      displayQuestions: !this.state.displayQuestions
+    });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <h1>Step 2 : Services</h1>
+        {/* <div className="container-services">
+          <OneService name="Housing" />
+          <OneService name="Schools" />
+          <OneService name="Bank" />
+          <OneService name="Insurances" />
+          <OneService name="Household Package (Electricity, Gas, Phone, Television and Internet subscriptions)" />
+        </div> */}
+        <RegisterSteps
+          step="2"
+          history={this.props.history}
+          nextUrl="/signup"
         />
-        <OneService name="Schools" icon={faUniversity} />
-        <OneService name="Bank" icon={faPiggyBank} />
-        <OneService name="Insurances" icon={faNotesMedical} />
-        <OneService
-          name="Household Package (Electricity, Gas, Phone, Television and Internet subscriptions)"
-          icon="faHome"
-        />
-      </div>
-    </React.Fragment>
-  );
+      </React.Fragment>
+    );
+  }
 }
