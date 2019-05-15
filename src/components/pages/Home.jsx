@@ -4,6 +4,13 @@ import React, { Component } from "react";
 import "./Home.css";
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props.history)
+    if (this.props.history.location.search.match("unauthorized")) {
+      this.props.logoutFromParent();
+    }
+  }
   render() {
     return (
       <div>

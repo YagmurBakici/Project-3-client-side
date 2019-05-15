@@ -28,14 +28,6 @@ export default class SignUp extends Component {
           mail: "",
           password: ""
         });
-<<<<<<< HEAD
-        this.props.getUser(res);
-        console.log(this.props);
-        this.history.push("/");
-      })
-      .catch(error => console.log(error));
-  };
-=======
         this.props.getUser(res)
         console.log(this.history)
         this.history.push('/')
@@ -47,7 +39,6 @@ export default class SignUp extends Component {
     const {name, value} = evt.target;
     this.setState({[name]: value});
   }
->>>>>>> 392f148a0ddbf1665f4e60d45426d4ff508fd84a
 
   handleInput = evt => {
     const { name, value } = evt.target;
