@@ -4,8 +4,36 @@
   border: 2px solid rgb(75, 151, 250);
   padding: 40px;
 }
+.profile {
+  margin-top: 9rem;
+}
 .field {
-
   max-width: 40vh;
   margin: 40px auto;
+}
+.documents-drop {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 8rem 0 0;
+}
+.documents-attached {
+  display: flex;
+  align-items: center;
+  border: 2px solid #fbd892;
+  padding: 25px;
+  color: black;
+  text-align: center;
+}
+.ptitle {
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(32, 32, 32);
+}
+.checkbox {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  top: 6px;
+  width: 24px;
+  height: 24px;
 }

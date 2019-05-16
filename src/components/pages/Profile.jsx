@@ -20,13 +20,9 @@ export default class Profile extends Component {
 
   render() {
     return (
-      <div>
-        <h1>PROFILE</h1>
-        {/* {this.props.user.role === "admin" && <Link to="/admin">go to admin panel</Link>} */}
-        {this.state.fileList.map((file, index) => (
-          <p key={index}>{file}</p>
-        ))}
-        <Checkbox /> Passport (copy of all pages) <br />
+      <div className="profile">
+        <h1 className="ptitle">PROFILE</h1>
+        <Checkbox tickColor="blue" /> Passport (copy of all pages) <br />
         <Checkbox /> ID <br />
         <Checkbox />5 Photos <br />
         <Checkbox /> Last tax declaration <br />
@@ -43,7 +39,20 @@ export default class Profile extends Component {
         <Checkbox /> Certificate of Eligibility <br />
         <Checkbox />
         Three most recent bank statements <br />
-        <DnD handleDnd={this.handleDnd} />
+        <div className="documents-drop">
+          <DnD handleDnd={this.handleDnd} />
+          {this.state.fileList.length > 0 ? (
+            <div className="documents-attached">
+              {/* {this.props.user.role === "admin" && <Link to="/admin">go to admin panel</Link>} */}
+              {/* {if(!this.state.fileList){
+             style ={display="none"}
+            }} */}
+              {this.state.fileList.map((file, index) => (
+                <p key={index}>{file}</p>
+              ))}
+            </div>
+          ) : null}
+        </div>
       </div>
     );
   }
