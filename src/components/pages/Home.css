@@ -4,7 +4,14 @@
   flex-wrap: wrap;
   margin: 1.3rem;
   justify-content: space-evenly;
+  background-image: url("../../assets/images/bagage.png");
+  /* height: 100%;
+  width: 100%; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .intro {
   text-align: justify;
   max-width: 50vw;
@@ -13,7 +20,7 @@
 }
 
 .steps {
-  margin: 1vw;
+  margin-top: 2vw;
 }
 .step {
   margin: 0.2rem;
@@ -22,7 +29,7 @@
 .image {
   width: 60vw;
   height: 55vh;
-  max-width: 40vw;
+  max-width: 35vw;
   max-height: 80vh;
   margin: 20vh 0 0 0;
 }
@@ -30,42 +37,45 @@
   max-width: 100vh;
   margin: auto;
 }
-button {
-  z-index: 1;
-  position: relative;
-  font-size: inherit;
-  font-family: inherit;
-  color: white;
-  padding: 0.5em 1em;
-  outline: none;
-  border: none;
-  background-color: hsl(229, 100%, 77%);
-  overflow: hidden;
-  transition: color 0.4s ease-in-out;
-}
 
-button::before {
-  content: "";
-  z-index: -1;
+.started {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  background-color: #f89f84;
-  transform-origin: center;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.45s ease-in-out;
+
+  border: 1 px solid #55c9d8;
+  color: white;
+  background-color: #55c9d8;
 }
 
-buttonh:hover {
-  cursor: pointer;
-  color: #fbd892;
+.started::before,
+.started::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #fbd892;
+  transform: scaleY(0);
+  transition: transform 0.5s ease;
 }
 
-buttonh:hover::before {
-  transform: translate(-50%, -50%) scale(15);
+.started::before {
+  left: -8px;
+  transform-origin: center top;
+}
+
+.started:hover::before {
+  transform-origin: center bottom;
+  transform: scaleY(1);
+}
+
+.started::after {
+  right: -8px;
+  transform-origin: center bottom;
+}
+
+.started:hover::after {
+  transform-origin: center top;
+  transform: scaleY(1);
 }
 
 @media only screen and (max-width: 890px) {

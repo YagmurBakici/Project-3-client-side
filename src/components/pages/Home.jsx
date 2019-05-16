@@ -35,19 +35,20 @@ export default class Home extends Component {
               and relax, we will handle all your formalities
             </div>
           </div>
-          <img
+          {/* <img
             src="image.png"
             alt="logol"
             className="image"
             width="400"
             height="200"
-          />
+          /> */}
         </div>
 
         {/* <Boxes /> */}
         {/* <InitialForm props={this.props} /> */}
         {/*  */}
         <button
+          className="input_send button is-link started"
           type="button"
           onClick={() => {
             this.props.history.push("/allservices");

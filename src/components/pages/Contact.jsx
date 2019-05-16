@@ -128,7 +128,7 @@ export default class Contact extends Component {
                 onClickAway={() => this.closeModal()}
               >
                 <div>
-                  <h1>
+                  <h1 className="msg">
                     Your email is sent! <br /> Thank you!
                   </h1>
 
