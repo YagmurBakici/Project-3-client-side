@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+/* ///////////////////////////////////// */
+/* ///////////// TEXT ////////////////// */
+/* ///////////////////////////////////// */
+
+.sign_Title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.intro_text {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 5vh;
+}
+
+.outro_text {
+  width: 40%;
+  text-align: center;
+  margin: 6vh auto;
+}
+
+/* ///////////////////////////////////// */
+/* //////////FORM CONTAINER///////////// */
+/* ///////////////////////////////////// */
+
+.form_Container {
+  width: 40%;
+  margin: 8.5rem auto 0px;
+  border: 2.3px solid rgb(85, 201, 215);
+  border-radius: 25px;
+  height: 100%;
+  padding: 7vh;
+}
+
+/* ///////////////////////////////////// */
+/* //////////// BUTTON ///////////////// */
+/* ///////////////////////////////////// */
+
+.auth_btn {
+  display: block;
+  position: relative;
+  margin: 5vh auto 0;
+  width: 30%;
+  border-radius: 1vh;
+  background-color: #55c9d8;
+}
+
+.auth_btn:hover {
+  background-color: #f18268;
+}

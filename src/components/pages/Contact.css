@@ -2,3 +2,27 @@
   max-width: 70vh;
   margin: auto;
 }
+
+.input {
+  border: #55c9d8 !important;
+  padding: 0px 4rem !important;
+}
+
+.input_send.button.is-link {
+  display: block;
+  position: relative;
+  margin: 5vh auto 0;
+  width: 30%;
+  border-radius: 1vh;
+  background-color: #55c9d8;
+  color: white;
+}
+
+.input_send.button.is-link:hover {
+  background-color: #f18268 !important;
+  color: white;
+}
+
+.textarea {
+  border: #55c9d8 !important;
+}

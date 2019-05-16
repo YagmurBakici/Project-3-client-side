@@ -1,36 +1,11 @@
-.home {
+.container-services {
+  width: 90vw;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin: 1.3rem;
-  justify-content: space-evenly;
-}
-.intro {
-  text-align: justify;
-  max-width: 50vw;
-  margin: 20vh 0 5vh 0vw;
-  font-size: 1.3vw;
-}
-
-.steps {
-  margin: 1vw;
-}
-.step {
-  margin: 0.2rem;
-}
-
-.image {
-  width: 60vw;
-  height: 55vh;
-  max-width: 40vw;
-  max-height: 80vh;
-  margin: 20vh 0 0 0;
-}
-.form {
-  max-width: 100vh;
   margin: auto;
 }
-button {
+li.servicesBtn {
   z-index: 1;
   position: relative;
   font-size: inherit;
@@ -44,7 +19,7 @@ button {
   transition: color 0.4s ease-in-out;
 }
 
-button::before {
+li.servicesBtn::before {
   content: "";
   z-index: -1;
   position: absolute;
@@ -59,21 +34,11 @@ button::before {
   transition: transform 0.45s ease-in-out;
 }
 
-buttonh:hover {
+li.servicesBtn:hover {
   cursor: pointer;
-  color: #fbd892;
+  color: #f2f9ff;
 }
 
-buttonh:hover::before {
+li.servicesBtn:hover::before {
   transform: translate(-50%, -50%) scale(15);
-}
-
-@media only screen and (max-width: 890px) {
-  .image {
-    order: 1;
-  }
-  .intro {
-    order: 2;
-    margin: 5vh 0 5vh 3vw;
-  }
 }

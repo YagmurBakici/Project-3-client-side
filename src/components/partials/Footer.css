@@ -1,0 +1,12 @@
+footer{
+    box-shadow: 0 4px 4px 3px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    margin-top:5vh;
+}
+
+footer>p{
+    font-size:small;
+}

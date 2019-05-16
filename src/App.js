@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import "react-bulma-components";
 import Nav from "./components/partials/Nav";
+import Footer from "./components/partials/Footer";
 import Home from "./components/pages/Home";
 import "./App.css";
 import SignUp from "./components/pages/SignUp";
 import Contact from "./components/pages/Contact";
+import Fees from "./components/pages/Fees";
 import LogIn from "./components/pages/LogIn";
 import AllServices from "./components/pages/AllServices";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { createBrowserHistory } from "history";
+// import { createBrowserHistory } from "history";
 import AuthService from "./components/auth/ajax";
 import Profile from "./components/pages/Profile";
+import Admin from "./components/pages/Admin";
 import { withRouter } from "react-router-dom";
 // import {createBrowserHistory} from "history";
 // const history = createBrowserHistory();
@@ -61,7 +64,11 @@ class App extends Component {
   };
 
   getTheUser = userObj => {
+<<<<<<< HEAD
     console.log("at get the user, userObj");
+=======
+    // console.log("at get the user, userObj")
+>>>>>>> e99fb72cdb28b85b22d01314cca7d458d773d2dc
     this.setState(
       {
         loggedInUser: userObj
@@ -69,8 +76,13 @@ class App extends Component {
       () => {
         // ce callback est exec une fois le state set ....
         // console.log("lucky ?", this.state.loggedInUser)
-        console.log(this.state.loggedInUser);
-        this.props.history.push("/profile");
+        // console.log(this.state.loggedInUser);
+        console.log("logged user ", userObj.role);
+        if (userObj.role === "admin") {
+          this.props.history.push("/admin");
+        } else {
+          this.props.history.push("/profile");
+        }
       }
     );
   };
@@ -84,18 +96,44 @@ class App extends Component {
           logoutFromParent={this.logoutUser}
         />
         <Switch>
+<<<<<<< HEAD
           <Route exact path="/" component={Home} />
+=======
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <Home {...props} logoutFromParent={this.logoutUser} />;
+            }}
+          />
+>>>>>>> e99fb72cdb28b85b22d01314cca7d458d773d2dc
           <Route
             path="/profile"
             render={props => {
               return !this.state.loggedInUser ? (
                 <Redirect to="/login" />
               ) : (
+<<<<<<< HEAD
                 <Profile {...props} getUser={this.getTheUser} />
+=======
+                <Profile {...props} user={this.state.loggedInUser} />
+              );
+            }}
+          />
+          <Route
+            path="/admin"
+            render={props => {
+              return this.state.loggedInUser &&
+                this.state.loggedInUser.role === "admin" ? (
+                <Admin {...props} user={this.state.loggedInUser} />
+              ) : (
+                <Redirect to="/?status=unauthorized" />
+>>>>>>> e99fb72cdb28b85b22d01314cca7d458d773d2dc
               );
             }}
           />
           <Route path="/allservices" component={AllServices} />
+          <Route path="/fees" component={Fees} />
           <Route path="/contact" component={Contact} />
           <Route
             path="/login"
@@ -116,6 +154,7 @@ class App extends Component {
           <Route path="/admin" component={Admin} />
           )} />
         </Switch>
+        <Footer/>
       </div>
     );
   }
