@@ -78,10 +78,10 @@ class DnD extends Component {
 
     return (
       <div
-        class="dnd"
+        className="dnd"
         style={{
           display: "inline-block",
-          border: "2px blue solid",
+          border: "2px #55c9d8 solid",
           padding: "100px",
           position: "relative"
         }}
@@ -111,11 +111,10 @@ class DnD extends Component {
                 fontSize: 36
               }}
             />
-            <div>drop here :</div>
           </div>
         )}
         {this.props.children}
-        drag and drop
+        <strong className="drop">Drag and Drop your documents here:</strong>
       </div>
     );
   }
