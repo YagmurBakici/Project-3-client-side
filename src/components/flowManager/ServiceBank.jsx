@@ -12,7 +12,7 @@ export default class ServiceBank extends Step {
       name: "bankInfos",
       bankInfos: {
         // cette clé est utilisée par le parent pour nommer les propriétés d'userData ex: userData['userInfos] ou userData["housingInfos"]
-        need: false,
+        need: "No",
         serviceFee: 150
       }
     };
@@ -48,7 +48,7 @@ export default class ServiceBank extends Step {
                 name="need"
                 value={need}
                 onChange={this.handleChange}
-                value={this.state.bankInfos.need}
+                checked={this.state.bankInfos.need === need ? true : false}
               />
               {need}
             </label>
