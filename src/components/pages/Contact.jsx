@@ -43,11 +43,7 @@ export default class Contact extends Component {
           <div className="form_field">
             <label className="label">Your Name:</label>
             <div className="control has-icons-left has-icons-right">
-              <input
-                className="input is-success"
-                type="text"
-                placeholder="Username"
-              />
+              <input className="input" type="text" placeholder="Username" />
               <span className="icon is-small is-left">
                 <FontAwesomeIcon icon={faUser} />
               </span>
@@ -137,6 +133,7 @@ export default class Contact extends Component {
                   </h1>
 
                   <a
+                    className="auth_btn"
                     //this href is to close the modal!
                     href="javascript:void(0);"
                     onClick={() => this.closeModal()}

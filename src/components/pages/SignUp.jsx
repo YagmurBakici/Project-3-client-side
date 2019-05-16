@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "./../auth/ajax";
 import { Link } from "react-router-dom";
-import "./SignUp.css"
+import "./SignUp.css";
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -112,7 +112,6 @@ export default class SignUp extends Component {
           <p>Already have an account ?</p>
           <Link to={"/LogIn"}>Login here</Link>
         </div>
-
       </React.Fragment>
     );
   }

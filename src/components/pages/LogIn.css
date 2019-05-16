@@ -1,10 +1,23 @@
-.log_Title{
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bolder;
-    margin-bottom: 3vh;
+.log_Title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 3vh;
 }
 
-.form_field{
-    margin:2rem;
+.form_field {
+  margin: 2rem;
+}
+
+.auth_btn {
+  display: block;
+  position: relative;
+  margin: 5vh auto 0;
+  width: 30%;
+  border-radius: 1vh;
+  background-color: #55c9d8;
+}
+
+.auth_btn:hover {
+  background-color: #f18268;
 }
