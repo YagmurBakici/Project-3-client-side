@@ -12,7 +12,6 @@ import { createBrowserHistory } from "history";
 import AuthService from "./components/auth/ajax";
 import Profile from "./components/pages/Profile";
 import { withRouter } from "react-router-dom";
-import Admin from "./components/pages/admin/admin";
 // import {createBrowserHistory} from "history";
 // const history = createBrowserHistory();
 
