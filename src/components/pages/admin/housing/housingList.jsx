@@ -1,4 +1,4 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 import { getAllHouse } from "../../../../API/HousesApi";
 
 class Housing extends Component {
@@ -38,12 +38,19 @@ class Housing extends Component {
   };
 
   render() {
+    console.log(
+      "---------------------",
+      this.props.activeCity,
+      this.state.houseList
+    );
     const { houseList } = this.state;
     return (
       <ul>
-        {houseList.map((house, index) => (
-          <li key={index}>{house.name}</li>
-        ))}
+        {houseList.map((house, index) =>
+          house.city.name === this.props.activeCity ? (
+            <li key={index}>{house.name}</li>
+          ) : null
+        )}
       </ul>
     );
   }

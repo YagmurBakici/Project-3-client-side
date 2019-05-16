@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APIurl = `${REACT_APP_BACKEND_URL}/housing`;
+const APIurl = process.env.REACT_APP_BACKEND_URL + "/housing";
 
 export const createNewHouse = infos => axios.post(`${APIurl}/create`, infos);
 
