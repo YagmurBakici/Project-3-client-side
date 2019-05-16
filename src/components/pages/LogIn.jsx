@@ -42,21 +42,20 @@ export default class LogIn extends Component {
             <h1 className="log_Title">LOGIN</h1>
 
             <div className="form_field">
-              <label className="label">Email: </label>
+              <label className="label" htmlFor="">
+                Email:{" "}
+              </label>
               <p className="control has-icons-left has-icons-right">
                 <input
                   className="input"
-                  type="email"
-                  placeholder="Email"
                   name="mail"
-                  onChange={this.onChange}
-                  required
+                  type="text"
+                  placeholder="email"
+                  value={this.state.mail}
+                  onChange={this.handleInput}
                 />
                 <span className="icon is-small is-left">
                   <FontAwesomeIcon icon={faEnvelope} />
-                </span>
-                <span className="icon is-small is-right">
-                  <i className="fas fa-check" />
                 </span>
               </p>
             </div>
