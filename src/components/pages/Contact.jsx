@@ -37,9 +37,10 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <section>
+      <section className="form_Container">
         <div className="contact">
-          <div className="field">
+          <h1 className="log_Title">Contact us</h1>
+          <div className="form_field">
             <label className="label">Your Name:</label>
             <div className="control has-icons-left has-icons-right">
               <input
@@ -56,7 +57,7 @@ export default class Contact extends Component {
             </div>
           </div>
 
-          <div className="field">
+          <div className="form_field">
             <label className="label">Email: </label>
             <p className="control has-icons-left has-icons-right">
               <input
@@ -76,8 +77,8 @@ export default class Contact extends Component {
             </p>
           </div>
 
-          <div className="field">
-            <label className="label">Subject</label>
+          <div className="form_field">
+            <label className="label">Subject:</label>
             <div className="control">
               <div className="select">
                 <select>
@@ -91,14 +92,14 @@ export default class Contact extends Component {
             </div>
           </div>
 
-          <div className="field">
+          <div className="form_field">
             <label className="label">Message: </label>
             <div className="control">
               <textarea className="textarea" placeholder="Your text" />
             </div>
           </div>
 
-          <div className="field">
+          <div className="form_field">
             <div className="control">
               <p>
                 <strong>You are already a client?</strong>{" "}
@@ -114,12 +115,12 @@ export default class Contact extends Component {
             </div>
           </div>
 
-          <div className="field is-grouped">
-            <div className="control">
+          <div className="field">
+            <div className="control btn_send">
               <input
-                className="button is-link"
+                className="input_send button is-link"
                 type="button"
-                value="Open"
+                value="Send"
                 onClick={() => this.openModal()}
               />
               <Modal

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "react-bulma-components";
 import Nav from "./components/partials/Nav";
+import Footer from "./components/partials/Footer";
 import Home from "./components/pages/Home";
 import "./App.css";
 import SignUp from "./components/pages/SignUp";
@@ -141,6 +142,7 @@ class App extends Component {
           />
           )} />
         </Switch>
+        <Footer/>
       </div>
     );
   }
