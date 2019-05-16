@@ -9,6 +9,7 @@ export default class ServiceInsurance extends Step {
   constructor(props) {
     super(props);
     this.state = {
+      name: "insuranceInfos",
       insuranceInfos: {
         // cette clé est utilisée par le parent pour nommer les propriétés d'userData ex: userData['userInfos] ou userData["housingInfos"]
         need: false,
@@ -20,6 +21,7 @@ export default class ServiceInsurance extends Step {
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.setInsuranceInfos(this.state);
+    console.log("state set:", this.state.insuranceInfos);
   };
 
   handleChange = evt => {

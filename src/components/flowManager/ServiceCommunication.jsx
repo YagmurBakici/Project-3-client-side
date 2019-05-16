@@ -9,6 +9,7 @@ export default class ServiceCommunication extends Step {
   constructor(props) {
     super(props);
     this.state = {
+      name: "communicationInfos",
       communicationInfos: {
         // cette clé est utilisée par le parent pour nommer les propriétés d'userData ex: userData['userInfos] ou userData["housingInfos"]
         need: false,
@@ -20,6 +21,7 @@ export default class ServiceCommunication extends Step {
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.setCommunicationInfos(this.state);
+    console.log("state set:", this.state.communicationInfos);
   };
 
   handleChange = evt => {

@@ -21,7 +21,7 @@ export default class RegisterSteps extends Component {
     //   throw new Error(
     //     "l'objet remonté au parent doit contenir une unique clé nommée"
     //   );
-    const stepName = Object.keys(stepInfos)[0]; // on récupère la clé de l'objet reçu de l'enfant (le step)
+    const stepName = Object.values(stepInfos)[0]; // on récupère la clé de l'objet reçu de l'enfant (le step)
     const stepValue = Object.values(stepInfos)[0];
     console.log("stepName:", stepName);
 

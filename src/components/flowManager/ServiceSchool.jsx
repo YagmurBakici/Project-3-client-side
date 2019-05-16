@@ -39,17 +39,19 @@ export default class ServiceSchool extends Step {
   constructor(props) {
     super(props);
     this.state = {
+      name: "schoolInfos",
+      nbChildren: getNbChildren().length,
       schoolInfos: []
     };
   }
 
   componentDidMount() {
-    const nb = getNbChildren().length;
-    console.log("mounted... nb ?", nb);
-    const baseInfos = getBaseChildInfos(nb);
-    this.setState({ schoolInfos: baseInfos }, () => {
-      console.log(this.state.schoolInfos);
-    });
+    if (this.state.nbChildren > 0) {
+      const baseInfos = getBaseChildInfos(this.state.nbChildren);
+      this.setState({ schoolInfos: baseInfos }, () => {
+        console.log(this.state.schoolInfos);
+      });
+    }
   }
 
   handleSubmit = evt => {
@@ -60,6 +62,7 @@ export default class ServiceSchool extends Step {
     //   [evt.target.schoolType]: "",
     //   [evt.target.level]: ""
     // });
+    console.log("state set:", this.state.schoolInfos[1].level);
   };
 
   handleChange = evt => {
@@ -80,7 +83,7 @@ export default class ServiceSchool extends Step {
   };
 
   render() {
-    return (
+    return this.state.nbChildren > 0 ? (
       <form className="service-form" onSubmit={this.handleSubmit}>
         <h2 className="title">School infos</h2>
         {getNbChildren().map((nbChildren, key) => (
@@ -131,6 +134,7 @@ export default class ServiceSchool extends Step {
               name="level"
               className="input"
               onChange={this.handleChange}
+              // value={this.state.schoolInfos.level}
             >
               <option value="" />
               {getLevels().map((level, key) => (
@@ -144,6 +148,8 @@ export default class ServiceSchool extends Step {
         ))}
         <button>Save and choose another service</button>{" "}
       </form>
+    ) : (
+      <p>You didn't declare any children</p>
     );
   }
 }

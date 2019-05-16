@@ -5,13 +5,21 @@ import ServiceSchool from "./ServiceSchool";
 import ServiceBank from "./ServiceBank";
 import ServiceInsurance from "./ServiceInsurance";
 import ServiceCommunication from "./ServiceCommunication";
+import FormUserInfos from "./FormUserInfos";
 
 export default class FormServices extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentService: null,
-      services: ["housing", "school", "bank", "insurance", "household-package"],
+      services: [
+        "basic-user-infos",
+        "housing",
+        "school",
+        "bank",
+        "insurance",
+        "household-package"
+      ],
       servicesInfos: {
         // cette clé est utilisée par le parent pour nommer les propriétés d'userData // ex: userData["userInfos"] ou userData["housingInfos"]
       },
@@ -39,7 +47,7 @@ export default class FormServices extends Component {
   setCurrentServiceInfos = serviceInfos => {
     const serviceName = Object.keys(serviceInfos)[0]; // on récupère la clé de l'objet reçu de l'enfant (le step)
     const serviceValue = Object.values(serviceInfos)[0];
-    console.log("serviceName:", serviceName);
+    console.log("serviceName:", serviceValue);
     console.log("serviceValue:", serviceValue);
     const { servicesInfos } = this.state; // faire une copy de l'objet this.state.servicesInfos as objectCopy
     // console.log(this.state);
@@ -69,6 +77,9 @@ export default class FormServices extends Component {
           parentHandler={this.setCurrentService}
           services={services}
         />
+        {currentService === "basic-user-infos" && (
+          <FormUserInfos setUserInfos={this.setCurrentServiceInfos} />
+        )}
         {currentService === "housing" && (
           <ServiceHousing setHousingInfos={this.setCurrentServiceInfos} />
         )}

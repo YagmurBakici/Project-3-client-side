@@ -40,12 +40,19 @@ export default class Home extends Component {
         {/* <Boxes /> */}
         {/* <InitialForm props={this.props} /> */}
         {/*  */}
-        <RegisterSteps
+        <button
+          type="button"
+          onClick={() => {
+            this.props.history.push("/allservices");
+          }}
+        >
+          GET STARTED
+        </button>
+        {/* <RegisterSteps
           step="1"
           history={this.props.history}
           nextUrl="/allservices"
-        />
-        {/*  */}
+        /> */}
       </div>
     );
   }

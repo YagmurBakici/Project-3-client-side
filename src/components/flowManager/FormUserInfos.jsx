@@ -9,10 +9,11 @@ export default class FormUserInfos extends Step {
   constructor(props) {
     super(props);
     this.state = {
+      name: "userInfos",
       userInfos: {
         // cette clé est utilisée par le parent pour nommer les propriétés d'userData / ex: userData['userInfos] ou userData["housingInfos"]
         city: "",
-        nbAdults: 0,
+        nbAdults: 1,
         nbChildren: 0,
         arrivalDate: ""
       }
@@ -22,7 +23,7 @@ export default class FormUserInfos extends Step {
   handleSubmit = evt => {
     evt.preventDefault();
     console.log("submited state:", this.state);
-    this.props.goToNextStep(this.state);
+    this.props.setUserInfos(this.state);
   };
 
   handleChange = evt => {
@@ -66,6 +67,7 @@ export default class FormUserInfos extends Step {
             name="nbAdults"
             className="input"
             onChange={this.handleChange}
+            value={this.state.userInfos.nbAdults}
           />
 
           <label htmlFor="nbChildren" className="label">
@@ -78,6 +80,7 @@ export default class FormUserInfos extends Step {
             name="nbChildren"
             className="input"
             onChange={this.handleChange}
+            value={this.state.userInfos.nbChildren}
           />
 
           <label htmlFor="arrivalDate" className="label">
@@ -90,6 +93,7 @@ export default class FormUserInfos extends Step {
             className="input"
             data-date-inline-picker="true"
             onChange={this.handleChange}
+            value={this.state.userInfos.arrivalDate}
           />
 
           <button>Next step</button>

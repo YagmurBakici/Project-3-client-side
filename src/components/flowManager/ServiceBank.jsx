@@ -9,6 +9,7 @@ export default class ServiceBank extends Step {
   constructor(props) {
     super(props);
     this.state = {
+      name: "bankInfos",
       bankInfos: {
         // cette clé est utilisée par le parent pour nommer les propriétés d'userData ex: userData['userInfos] ou userData["housingInfos"]
         need: false,
@@ -20,6 +21,7 @@ export default class ServiceBank extends Step {
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.setBankInfos(this.state);
+    console.log("state set:", this.state.bankInfos);
   };
 
   handleChange = evt => {
@@ -46,6 +48,7 @@ export default class ServiceBank extends Step {
                 name="need"
                 value={need}
                 onChange={this.handleChange}
+                value={this.state.bankInfos.need}
               />
               {need}
             </label>

@@ -7,6 +7,15 @@ import Step from "./Step";
  * returns an enum of of possible housing types
  * @todo: fecth the data from dedicated model
  */
+
+// function getNbChildren() {
+//   const nbChildren = Number(
+//     JSON.parse(window.localStorage.getItem("userInfos")).nbChildren
+//   ); // je récupère du local storage le nombre d'enfants déclaré par le user
+//   const array = [...Array(nbChildren).keys()]; // je fais un array [0,1,... jusqu'au nombre d'enfants]
+//   return array;
+// }
+
 function getHousingTypes() {
   return ["House", "Apartment"];
 }
@@ -18,6 +27,7 @@ export default class ServiceHousing extends Step {
   constructor(props) {
     super(props);
     this.state = {
+      name: "housingInfos",
       housingInfos: {
         // cette clé est utilisée par le parent pour nommer les propriétés d'userData ex: userData['userInfos] ou userData["housingInfos"]
         housingType: "",
@@ -39,7 +49,8 @@ export default class ServiceHousing extends Step {
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.setHousingInfos(this.state);
-    console.log(this.state);
+    console.log("state set:", this.state.housingInfos);
+    console.log("YOOOOOOOOOOO SUBMITTEEEEEEEEEED");
   };
 
   handleChange = evt => {
@@ -48,12 +59,16 @@ export default class ServiceHousing extends Step {
     this.setState({ housingInfos: housingInfos });
     console.log("changed (key/value):", evt.target.name, evt.target.value);
     // console.log("housing object just was just changed:", housingInfos);
+    // console.log("I AM HEEEEEEEEEERE", this.state.housingInfos);
+    // console.log("I AM HEEEEEEEEEERE TOO", Number(this.state.housingInfos.rent));
+    // console.log(Boolean(window.localStorage.getItem("userInfos")));
   };
 
   handleCheckboxes = evt => {
     const { housingInfos: housingInfosCopy } = this.state;
     housingInfosCopy[evt.target.name] = evt.currentTarget.checked;
     this.setState({ housingInfos: housingInfosCopy });
+    console.log(this.state);
   };
 
   render() {
@@ -89,6 +104,7 @@ export default class ServiceHousing extends Step {
           name="bedrooms"
           className="input"
           onChange={this.handleChange}
+          value={this.state.housingInfos.bedrooms}
         >
           <option value="" />
           <option value="1">1 +</option>
@@ -106,6 +122,7 @@ export default class ServiceHousing extends Step {
           name="bathrooms"
           className="input"
           onChange={this.handleChange}
+          value={this.state.housingInfos.bathrooms}
         >
           <option value="" />
           <option value="1">1 +</option>
@@ -182,6 +199,10 @@ export default class ServiceHousing extends Step {
                 name="lifestyle"
                 value={lifestyle}
                 onChange={this.handleChange}
+                // checked={
+                //   this.state.housingInfos.lifestyle !== "" &&
+                //   this.state.housingInfos.lifestyle
+                // }
               />
               {lifestyle}
             </label>
@@ -198,6 +219,7 @@ export default class ServiceHousing extends Step {
           className="input"
           min="0"
           onChange={this.handleChange}
+          value={this.state.housingInfos.rent}
         />
 
         <button>Save and choose another service</button>
