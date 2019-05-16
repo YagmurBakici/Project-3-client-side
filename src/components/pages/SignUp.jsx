@@ -104,7 +104,9 @@ export default class SignUp extends Component {
                 onChange={this.handleInput}
               />
             </div>
-            <button className="auth_btn">Sign Up</button>
+            <button className="input_send button is-link auth_btn">
+              Sign Up
+            </button>
           </form>
         </div>
 

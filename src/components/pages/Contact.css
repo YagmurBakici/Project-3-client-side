@@ -30,6 +30,7 @@
 .auth_btn {
   color: white !important;
   text-align: center !important;
+  width: 3vw;
 }
 .msg {
   text-align: center;

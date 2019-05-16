@@ -39,10 +39,8 @@
 }
 
 .started {
-  width: 13vw;
-  height: 6vh;
   position: absolute;
-  left: 45%;
+
   border: 1 px solid #55c9d8;
   color: white;
   background-color: #55c9d8;

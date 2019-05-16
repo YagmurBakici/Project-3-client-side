@@ -48,7 +48,7 @@ export default class Home extends Component {
         {/* <InitialForm props={this.props} /> */}
         {/*  */}
         <button
-          className="started"
+          className="input_send button is-link started"
           type="button"
           onClick={() => {
             this.props.history.push("/allservices");

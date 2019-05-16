@@ -40,7 +40,6 @@ export default class LogIn extends Component {
         <div className="form_Container">
           <form className="form" onSubmit={this.handleSubmit}>
             <h1 className="log_Title">LOGIN</h1>
-
             <div className="form_field">
               <label className="label" htmlFor="">
                 Email:{" "}
@@ -59,7 +58,6 @@ export default class LogIn extends Component {
                 </span>
               </p>
             </div>
-
             <div className="form_field">
               <label className="label" htmlFor="">
                 Password
@@ -73,8 +71,9 @@ export default class LogIn extends Component {
                 onChange={this.handleInput}
               />
             </div>
-
-            <button className="auth_btn">Login</button>
+            <button className="input_send button is-link auth_btn">
+              Login
+            </button>
           </form>
         </div>
 

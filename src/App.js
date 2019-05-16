@@ -64,11 +64,7 @@ class App extends Component {
   };
 
   getTheUser = userObj => {
-<<<<<<< HEAD
-    console.log("at get the user, userObj");
-=======
     // console.log("at get the user, userObj")
->>>>>>> e99fb72cdb28b85b22d01314cca7d458d773d2dc
     this.setState(
       {
         loggedInUser: userObj
@@ -96,9 +92,6 @@ class App extends Component {
           logoutFromParent={this.logoutUser}
         />
         <Switch>
-<<<<<<< HEAD
-          <Route exact path="/" component={Home} />
-=======
           <Route
             exact
             path="/"
@@ -106,16 +99,12 @@ class App extends Component {
               return <Home {...props} logoutFromParent={this.logoutUser} />;
             }}
           />
->>>>>>> e99fb72cdb28b85b22d01314cca7d458d773d2dc
           <Route
             path="/profile"
             render={props => {
               return !this.state.loggedInUser ? (
                 <Redirect to="/login" />
               ) : (
-<<<<<<< HEAD
-                <Profile {...props} getUser={this.getTheUser} />
-=======
                 <Profile {...props} user={this.state.loggedInUser} />
               );
             }}
@@ -128,7 +117,6 @@ class App extends Component {
                 <Admin {...props} user={this.state.loggedInUser} />
               ) : (
                 <Redirect to="/?status=unauthorized" />
->>>>>>> e99fb72cdb28b85b22d01314cca7d458d773d2dc
               );
             }}
           />
@@ -154,7 +142,7 @@ class App extends Component {
           <Route path="/admin" component={Admin} />
           )} />
         </Switch>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
