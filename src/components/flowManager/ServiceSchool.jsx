@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import Step from "./Step";
 
 /**
  * @return Array
  */
 function getNbChildren() {
   const nbChildren = Number(
-    JSON.parse(window.localStorage.getItem("step1")).userInfos.nbChildren
+    JSON.parse(window.localStorage.getItem("userInfos")).nbChildren
   ); // je récupère du local storage le nombre d'enfants déclaré par le user
   const array = [...Array(nbChildren).keys()]; // je fais un array [0,1,... jusqu'au nombre d'enfants]
   return array;
@@ -34,7 +35,7 @@ function getBaseChildInfos(length) {
   return arr;
 }
 
-export default class ServiceSchool extends Component {
+export default class ServiceSchool extends Step {
   constructor(props) {
     super(props);
     this.state = {

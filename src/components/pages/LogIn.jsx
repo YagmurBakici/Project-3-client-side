@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "./../auth/ajax";
 import {Link} from "react-router-dom";
-
+import "./LogIn.css"
 
 export default class LogIn extends Component {
   constructor(props){
@@ -37,16 +37,28 @@ export default class LogIn extends Component {
   render() {
     return (
       <React.Fragment>
-      <form onSubmit={this.handleSubmit}>
-        <h1>LOG IN PAGE</h1>
-        <label htmlFor="">Mail</label>
-        <input name="mail" type="text" value={this.state.mail} onChange={this.handleInput} />
-        <label htmlFor="">Password</label>
-        <input name="password" type="password" value={this.state.password} onChange={this.handleInput} />
-        <button>ok</button>
-      </form>
-      <p>You don't have an account ?</p>
-      <Link to={"/SignUp"}>Sign up Here</Link>
+        <div className="form_Container">
+          <form className="form" onSubmit={this.handleSubmit}>
+            <h1 className="log_Title">LOGIN</h1>
+
+            <div className="form_field">
+              <label className="label" htmlFor="">Mail</label>
+              <input className="input" name="mail" type="text" placeholder="email" value={this.state.mail} onChange={this.handleInput} />
+            </div>
+
+            <div className="form_field">
+              <label className="label" htmlFor="">Password</label>
+              <input className="input" name="password" type="password" placeholder="******" value={this.state.password} onChange={this.handleInput} />  
+            </div>
+
+            <button className="auth_btn">Login</button>
+          </form>
+        </div>
+
+        <div className="outro_text">
+          <p>You don't have an account ?</p>
+          <Link to={"/SignUp"}>Sign up Here</Link>
+        </div>
       </React.Fragment>
     );
   }
