@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APIurl = `${REACT_APP_BACKEND_URL}/city`;
+const APIurl = process.env.REACT_APP_BACKEND_URL + "/city";
 
 export const getAllcities = () => axios.get(APIurl);
 
