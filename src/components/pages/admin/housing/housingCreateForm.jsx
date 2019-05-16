@@ -67,6 +67,22 @@ export default class HousingCreateForm extends Component {
     console.log(this.state);
     // call to the backend
     // Post request
+
+    createNewHouse({
+      name: this.state.houseInfos.name,
+      description: this.state.houseInfos.description,
+      address: this.state.houseInfos.address,
+      city: this.state.houseInfos.city,
+      bedrooms: this.state.houseInfos.bedrooms,
+      bathrooms: this.state.houseInfos.bathrooms,
+      housingType: this.state.houseInfos.housingType,
+      lifestyle: this.state.houseInfos.lifestyle,
+      monthlyRent: this.state.houseInfos.rent
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => console.error(err.response));
   };
 
   render() {
