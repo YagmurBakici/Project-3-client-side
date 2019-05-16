@@ -9,9 +9,10 @@
   color: rgb(32, 32, 32);
 }
 .container-services {
+  margin-top: 5vh !important;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-evenly !important;
 }
 .second-text {
   width: 16rem;
@@ -29,7 +30,6 @@
 }
 li {
   list-style-type: circle;
-  margin-left: 2rem !important;
   text-align: justify;
 }
 .col-sm-6 {
@@ -47,10 +47,13 @@ li {
 }
 .second {
   position: relative;
-  background-color: #f2f3ff;
+  /* background-color: #fffee2; */
   padding: 25px 22px 10px 30px;
   width: 20rem;
   height: 27rem;
+  border-radius: 2rem;
+  /* box-shadow: 0px 0px 5px -1px rgba(85,201,215,1); */
+  border: 2px solid rgba(85,201,215,1);
 }
 .second h3 {
   text-align: center;
@@ -68,8 +71,20 @@ li {
   position: bottom;
 }
 .third .currency-amount {
-  color: #3086e9;
+  color: rgba(85,201,215,1);;
   font-size: 37px;
   font-weight: 600;
   line-height: 37px;
+}
+
+.fee_Container{
+  margin: 8.5rem auto auto;
+}
+
+.fee_paragraph{
+  color:rgba(85,201,215,1);
+}
+
+.testcolor{
+  color:rgb(241,130,105)
 }

@@ -3,6 +3,11 @@
   margin: auto;
 }
 
-.send_btn{
-  justify-content: center !important;
+.btn_send{
+  text-align: center !important;
+}
+
+.input_send{
+  background-color: rgb(85,201,215) !important;
+  padding: 0px 4rem !important;
 }
