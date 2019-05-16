@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import Step from "./Step";
 
 function getNeed() {
   return ["Yes", "No"];
 }
 
-export default class ServiceCommunication extends Component {
+export default class ServiceCommunication extends Step {
   constructor(props) {
     super(props);
     this.state = {
