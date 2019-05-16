@@ -37,7 +37,7 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <section>
+      <section className="form_Container">
         <div className="contact">
           <div className="field">
             <label className="label">Your Name:</label>
