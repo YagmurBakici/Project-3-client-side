@@ -26,3 +26,12 @@
 .textarea {
   border: #55c9d8 !important;
 }
+
+.auth_btn {
+  color: white !important;
+  text-align: center !important;
+}
+.msg {
+  text-align: center;
+  color: #55c9d8;
+}
