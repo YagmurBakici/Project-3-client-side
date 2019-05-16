@@ -115,10 +115,10 @@ export default class Contact extends Component {
             </div>
           </div>
 
-          <div className="field is-grouped send_btn">
-            <div className="control">
+          <div className="field">
+            <div className="control btn_send">
               <input
-                className="button is-link"
+                className="input_send button is-link"
                 type="button"
                 value="Send"
                 onClick={() => this.openModal()}

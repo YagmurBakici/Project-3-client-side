@@ -6,3 +6,7 @@ footer{
     height: 4rem;
     margin-top:5vh;
 }
+
+footer>p{
+    font-size:small;
+}
