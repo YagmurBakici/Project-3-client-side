@@ -62,6 +62,7 @@ export default class RegisterSteps extends Component {
             goToNextStep={this.handleCurrentStep}
           />
         )}
+
         {currentStep === 2 && (
           <StepTwo
             step={this.props.step}

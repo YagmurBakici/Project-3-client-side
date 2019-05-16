@@ -90,6 +90,9 @@ export default class ServiceHousing extends Step {
                 name="housingType"
                 value={type}
                 onChange={this.handleChange}
+                checked={
+                  this.state.housingInfos.housingType === type ? true : false
+                }
               />
               {type}
             </label>
@@ -141,6 +144,7 @@ export default class ServiceHousing extends Step {
               id="balcony"
               name="balcony"
               onChange={this.handleCheckboxes}
+              checked={this.state.housingInfos.balcony === true ? true : false}
             />{" "}
             Balcony
             <label htmlFor="terrace" className="label" />
@@ -149,6 +153,7 @@ export default class ServiceHousing extends Step {
               id="terrace"
               name="terrace"
               onChange={this.handleCheckboxes}
+              checked={this.state.housingInfos.terrace === true ? true : false}
             />{" "}
             Terrace
             <label htmlFor="garden" className="label" />
@@ -157,6 +162,7 @@ export default class ServiceHousing extends Step {
               id="garden"
               name="garden"
               onChange={this.handleCheckboxes}
+              checked={this.state.housingInfos.garden === true ? true : false}
             />{" "}
             Garden
             <label htmlFor="parking" className="label" />
@@ -165,6 +171,7 @@ export default class ServiceHousing extends Step {
               id="parking"
               name="parking"
               onChange={this.handleCheckboxes}
+              checked={this.state.housingInfos.parking === true ? true : false}
             />
             Parking
             <label htmlFor="handicapAccess" className="label" />
@@ -173,6 +180,9 @@ export default class ServiceHousing extends Step {
               id="handicapAccess"
               name="handicapAccess"
               onChange={this.handleCheckboxes}
+              checked={
+                this.state.housingInfos.handicapAccess === true ? true : false
+              }
             />
             Handicap access
             <label htmlFor="petFriendly" className="label" />
@@ -181,6 +191,9 @@ export default class ServiceHousing extends Step {
               id="petFriendly"
               name="petFriendly"
               onChange={this.handleCheckboxes}
+              checked={
+                this.state.housingInfos.petFriendly === true ? true : false
+              }
             />{" "}
             Pet friendly
           </div>
@@ -199,10 +212,9 @@ export default class ServiceHousing extends Step {
                 name="lifestyle"
                 value={lifestyle}
                 onChange={this.handleChange}
-                // checked={
-                //   this.state.housingInfos.lifestyle !== "" &&
-                //   this.state.housingInfos.lifestyle
-                // }
+                checked={
+                  this.state.housingInfos.lifestyle === lifestyle ? true : false
+                }
               />
               {lifestyle}
             </label>

@@ -49,6 +49,9 @@ export default class ServiceCommunication extends Step {
                 name="need"
                 value={need}
                 onChange={this.handleChange}
+                checked={
+                  this.state.communicationInfos.need === need ? true : false
+                }
               />
               {need}
             </label>{" "}

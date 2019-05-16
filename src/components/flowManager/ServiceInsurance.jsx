@@ -49,6 +49,7 @@ export default class ServiceInsurance extends Step {
                 name="need"
                 value={need}
                 onChange={this.handleChange}
+                checked={this.state.insuranceInfos.need === need ? true : false}
               />
               {need}
             </label>

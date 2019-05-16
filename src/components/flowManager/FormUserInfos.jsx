@@ -36,7 +36,6 @@ export default class FormUserInfos extends Step {
   render() {
     return (
       <div>
-        <h1>Step 1 : Give us your basic moving infos</h1>
         <form className="service-form" onSubmit={this.handleSubmit}>
           <label htmlFor="city" className="label">
             Where are you moving to? <br />{" "}
@@ -51,6 +50,7 @@ export default class FormUserInfos extends Step {
                   name="city"
                   value={city}
                   onChange={this.handleChange}
+                  checked={this.state.userInfos.city === city ? true : false}
                 />
                 {city}
               </label>
