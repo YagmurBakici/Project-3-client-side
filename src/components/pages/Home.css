@@ -59,12 +59,12 @@ button::before {
   transition: transform 0.45s ease-in-out;
 }
 
-button:hover {
+buttonh:hover {
   cursor: pointer;
-  color: #f2f9ff;
+  color: #fbd892;
 }
 
-button:hover::before {
+buttonh:hover::before {
   transform: translate(-50%, -50%) scale(15);
 }
 
