@@ -5,19 +5,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-export default class Examples extends Component {
+export default class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      visible: false,
+      email: ""
     };
   }
 
-  openModal() {
+  onChange = e => {
     this.setState({
-      visible: true,
-      email: " "
+      [e.target.name]: e.target.value
     });
+  };
+  openModal() {
+    if (this.state.email) {
+      this.setState({
+        visible: true
+      });
+    } else {
+      console.log("you shouldnt work");
+    }
   }
 
   closeModal() {
@@ -49,13 +58,20 @@ export default class Examples extends Component {
 
           <div className="field">
             <label className="label">Email: </label>
-            <p class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email" />
-              <span class="icon is-small is-left">
+            <p className="control has-icons-left has-icons-right">
+              <input
+                className="input"
+                type="email"
+                placeholder="Email"
+                name="email"
+                onChange={this.onChange}
+                required
+              />
+              <span className="icon is-small is-left">
                 <FontAwesomeIcon icon={faEnvelope} />
               </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check" />
+              <span className="icon is-small is-right">
+                <i className="fas fa-check" />
               </span>
             </p>
           </div>
@@ -120,6 +136,7 @@ export default class Examples extends Component {
                   </h1>
 
                   <a
+                    //this href is to close the modal!
                     href="javascript:void(0);"
                     onClick={() => this.closeModal()}
                   >

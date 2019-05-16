@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+.fee {
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(32, 32, 32);
+}
+.container-services {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.second-text {
+  width: 16rem;
+  height: 12rem;
+  text-align: center;
+}
+.second p {
+  text-align: justify;
+}
+.third {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-end; */
+  text-align: end;
+}
+li {
+  list-style-type: circle;
+  margin-left: 2rem !important;
+  text-align: justify;
+}
+.col-sm-6 {
+  display: flex;
+  justify-content: space-evenly;
+}
+.first {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+.second {
+  position: relative;
+  background-color: #f2f3ff;
+  padding: 25px 22px 10px 30px;
+  width: 20rem;
+  height: 27rem;
+}
+.second h3 {
+  text-align: center;
+  color: #313131;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  margin: 0 0 25px;
+  padding: 0 0 15px;
+  position: relative;
+  text-transform: uppercase;
+}
+.third {
+  color: #3086e9;
+  position: bottom;
+}
+.third .currency-amount {
+  color: #3086e9;
+  font-size: 37px;
+  font-weight: 600;
+  line-height: 37px;
+}

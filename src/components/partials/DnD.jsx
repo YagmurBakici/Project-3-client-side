@@ -78,10 +78,11 @@ class DnD extends Component {
 
     return (
       <div
+        class="dnd"
         style={{
           display: "inline-block",
           border: "2px blue solid",
-          padding: "40px",
+          padding: "100px",
           position: "relative"
         }}
         ref={this.dropRef}
@@ -99,7 +100,6 @@ class DnD extends Component {
               zIndex: 9999
             }}
           >
-            ))}
             <div
               style={{
                 position: "absolute",
@@ -120,4 +120,5 @@ class DnD extends Component {
     );
   }
 }
+
 export default DnD;

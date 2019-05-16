@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import "./App.css";
 import SignUp from "./components/pages/SignUp";
 import Contact from "./components/pages/Contact";
+import Fees from "./components/pages/Fees";
 import LogIn from "./components/pages/LogIn";
 import AllServices from "./components/pages/AllServices";
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -120,6 +121,7 @@ class App extends Component {
             }}
           />
           <Route path="/allservices" component={AllServices} />
+          <Route path="/fees" component={Fees} />
           <Route path="/contact" component={Contact} />
           <Route
             path="/login"

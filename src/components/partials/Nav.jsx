@@ -15,8 +15,8 @@ export default class Nav extends Component {
 
   render() {
     // console.log("PROP USER IN SESSION", this.props.userInSession.role);
-    if (this.props.userInSession){
-    console.log("hello prop",this.props.userInSession.role)
+    if (this.props.userInSession) {
+      console.log("hello prop", this.props.userInSession.role);
     }
     return (
       <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -45,16 +45,30 @@ export default class Nav extends Component {
             <NavLink to="/contact" className="navbar-item">
               Contact
             </NavLink>
+            <NavLink to="/fees" className="navbar-item">
+              Fees
+            </NavLink>
           </div>
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
                 {this.props.userInSession ? (
                   <React.Fragment>
-                    {this.props.userInSession.role === "admin" && <NavLink className="button is-primary" to="/admin">Admin</NavLink>}
-                    {this.props.userInSession.role === "user" && <NavLink className="button is-primary" to="/profile">Profile</NavLink>}
+                    {this.props.userInSession.role === "admin" && (
+                      <NavLink className="button is-primary" to="/admin">
+                        Admin
+                      </NavLink>
+                    )}
+                    {this.props.userInSession.role === "user" && (
+                      <NavLink className="button is-primary" to="/profile">
+                        Profile
+                      </NavLink>
+                    )}
 
-                    <button className="button is-danger" onClick={this.props.logoutFromParent}>
+                    <button
+                      className="button is-danger"
+                      onClick={this.props.logoutFromParent}
+                    >
                       Logout
                     </button>
                   </React.Fragment>
