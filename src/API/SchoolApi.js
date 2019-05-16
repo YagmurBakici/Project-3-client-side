@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APIUrl = `${REACT_APP_BACKEND_URL}`/school`;
+const APIUrl = `${REACT_APP_BACKEND_URL}/school`;
 
 export const createNewSchool = infos => axios.post(`${APIurl}/create`, infos);
 
