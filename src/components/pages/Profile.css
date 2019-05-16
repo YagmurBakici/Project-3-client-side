@@ -7,6 +7,12 @@
 .profile {
   margin-top: 9rem;
 }
+.prof {
+  border: 2px solid #55c9d8;
+  border-radius: 2px;
+  padding: 20px;
+  margin: 20px;
+}
 .field {
   max-width: 40vh;
   margin: 40px auto;

@@ -21,24 +21,26 @@ export default class Profile extends Component {
   render() {
     return (
       <div className="profile">
-        <h1 className="ptitle">PROFILE</h1>
-        <Checkbox tickColor="blue" /> Passport (copy of all pages) <br />
-        <Checkbox /> ID <br />
-        <Checkbox />5 Photos <br />
-        <Checkbox /> Last tax declaration <br />
-        <Checkbox />
-        Signed employment contract or offer letter from your future employer{" "}
-        <br />
-        <Checkbox />
-        Proof of old address: an electricity, gas, water or landline bill, or a
-        declaration that you are being housed free of charge signed by the
-        person providing you with accommodation, together with a copy of one of
-        their bills and their photo ID. <br />
-        <Checkbox /> Three most recent bank statements <br />
-        <Checkbox /> Foreign tax identification number <br />
-        <Checkbox /> Certificate of Eligibility <br />
-        <Checkbox />
-        Three most recent bank statements <br />
+        <div className="prof">
+          <h1 className="ptitle">PROFILE</h1>
+          <Checkbox tickColor="blue" /> Passport (copy of all pages) <br />
+          <Checkbox /> ID <br />
+          <Checkbox />5 Photos <br />
+          <Checkbox /> Last tax declaration <br />
+          <Checkbox />
+          Signed employment contract or offer letter from your future employer{" "}
+          <br />
+          <Checkbox />
+          Proof of old address: an electricity, gas, water or landline bill, or
+          a declaration that you are being housed free of charge signed by the
+          person providing you with accommodation, together with a copy of one
+          of their bills and their photo ID. <br />
+          <Checkbox /> Three most recent bank statements <br />
+          <Checkbox /> Foreign tax identification number <br />
+          <Checkbox /> Certificate of Eligibility <br />
+          <Checkbox />
+          Three most recent bank statements <br />
+        </div>
         <div className="documents-drop">
           <DnD handleDnd={this.handleDnd} />
           {this.state.fileList.length > 0 ? (
