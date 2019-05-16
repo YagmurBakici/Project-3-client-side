@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import "./ServiceHousing.css";
+import React from "react";
+
 import "./Services.css";
+import Step from "./Step";
+
 /**
  * returns an enum of of possible housing types
  * @todo: fecth the data from dedicated model
@@ -12,7 +14,7 @@ function getLifestyles() {
   return ["Family friendly", "Lively", "Young but calm"];
 }
 
-export default class ServiceHousing extends Component {
+export default class ServiceHousing extends Step {
   constructor(props) {
     super(props);
     this.state = {
@@ -113,7 +115,7 @@ export default class ServiceHousing extends Component {
           <option value="5">5 +</option>
         </select>
 
-        <p id="amenities">
+        <div id="amenities">
           Choose your amenities: <br />
           <label htmlFor="balcony" className="label" />
           <div className="amenities-checkboxes">
@@ -165,7 +167,7 @@ export default class ServiceHousing extends Component {
             />{" "}
             Pet friendly
           </div>
-        </p>
+        </div>
 
         <label htmlFor="lifestyle" className="label">
           What type of lifestyle are you looking for?

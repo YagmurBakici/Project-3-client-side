@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import Step from "./Step";
 
 function getCities() {
   return ["Paris", "Miami", "Seoul"];
 }
 
-export default class FormUserInfos extends Component {
+export default class FormUserInfos extends Step {
   constructor(props) {
     super(props);
     this.state = {

@@ -34,7 +34,6 @@ export default class RegisterSteps extends Component {
       },
       () => {
         // on temporise, déclencher l'action seulement quand le state a été set
-        this.storeLocally(stepInfos);
         if (this.props.nextUrl) {
           this.props.history.push(this.props.nextUrl);
         } else {
@@ -52,23 +51,25 @@ export default class RegisterSteps extends Component {
     });
   };
 
-  storeLocally(data) {
-    // stockons les infos dans le store local (on pourra les récupérer même si user recharge ... )
-    const JSONKey = "step" + this.state.currentStep;
-    const JSONObject = JSON.stringify(data);
-    window.localStorage.setItem(JSONKey, JSONObject);
-    console.log("this is saved in the local storage:", JSONKey, JSONObject);
-  }
-
   render() {
     const { currentStep } = this.state;
     return (
       <React.Fragment>
         {/* <h1 className="title">step {currentStep}</h1> */}
-        {currentStep === 1 && <StepOne goToNextStep={this.handleCurrentStep} />}
-        {currentStep === 2 && <StepTwo goToNextStep={this.handleCurrentStep} />}
-        {currentStep === 3 && <p>step 3</p>}
-        {currentStep === 4 && <p>step 4</p>}
+        {currentStep === 1 && (
+          <StepOne
+            step={this.props.step}
+            goToNextStep={this.handleCurrentStep}
+          />
+        )}
+        {currentStep === 2 && (
+          <StepTwo
+            step={this.props.step}
+            goToNextStep={this.handleCurrentStep}
+          />
+        )}
+        {/* {currentStep === 3 && <p>step 3</p>}
+        {currentStep === 4 && <p>step 4</p>} */}
       </React.Fragment>
     );
   }

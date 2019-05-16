@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import {Link} from "react-router-dom"
 import Checkbox from "react-simple-checkbox";
 import DnD from "../partials/DnD";
+import "./Profile.css";
 
 export default class Profile extends Component {
   // constructor(props) {

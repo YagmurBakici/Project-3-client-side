@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import AuthService from "./../auth/ajax";
+import "./Nav.css";
 export default class Nav extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ export default class Nav extends Component {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <NavLink exact to="/">
-            <img src="./../xpt.png" alt="logo" width="100rem" height="600rem" />
+            <img className="logo" src="./../xpt.png" alt="logo" />
           </NavLink>
           <a
             role="button"
@@ -39,14 +40,14 @@ export default class Nav extends Component {
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <NavLink exact to="/" className="navbar-item">
-              Home
+            <NavLink exact to="/" className="navbar-items">
+              HOME
             </NavLink>
-            <NavLink to="/contact" className="navbar-item">
-              Contact
+            <NavLink to="/contact" className="navbar-items">
+              CONTACT
             </NavLink>
-            <NavLink to="/fees" className="navbar-item">
-              Fees
+            <NavLink to="/fees" className="navbar-items">
+              FEES
             </NavLink>
           </div>
           <div className="navbar-end">
@@ -61,7 +62,7 @@ export default class Nav extends Component {
                     )}
                     {this.props.userInSession.role === "user" && (
                       <NavLink className="button is-primary" to="/profile">
-                        Profile
+                        My Profile
                       </NavLink>
                     )}
 
