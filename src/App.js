@@ -12,7 +12,7 @@ import { createBrowserHistory } from "history";
 import AuthService from "./components/auth/ajax";
 import Profile from "./components/pages/Profile";
 import { withRouter } from "react-router-dom";
-
+import Admin from "./components/pages/admin/admin";
 // import {createBrowserHistory} from "history";
 // const history = createBrowserHistory();
 
@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   fetchUser() {
-    console.log("fetch the user", this.state.loggedInUser)
+    console.log("fetch the user", this.state.loggedInUser);
     if (this.state.loggedInUser === null) {
       this.service
         .loggedin()
@@ -62,7 +62,7 @@ class App extends Component {
   };
 
   getTheUser = userObj => {
-    console.log("at get the user, userObj")
+    console.log("at get the user, userObj");
     this.setState(
       {
         loggedInUser: userObj
@@ -86,12 +86,16 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/" component={Home} />
-          
-          <Route path="/profile" render={props => {
-              return !this.state.loggedInUser ? 
-                <Redirect to="/login" /> : <Profile {...props} getUser={this.getTheUser} />
-              ;
-            }} />
+          <Route
+            path="/profile"
+            render={props => {
+              return !this.state.loggedInUser ? (
+                <Redirect to="/login" />
+              ) : (
+                <Profile {...props} getUser={this.getTheUser} />
+              );
+            }}
+          />
           <Route path="/allservices" component={AllServices} />
           <Route path="/contact" component={Contact} />
           <Route
@@ -110,6 +114,7 @@ class App extends Component {
               ) : null;
             }}
           />
+          <Route path="/admin" component={Admin} />
           )} />
         </Switch>
       </div>
