@@ -41,12 +41,12 @@ export default class LogIn extends Component {
           <form className="form" onSubmit={this.handleSubmit}>
             <h1 className="log_Title">LOGIN</h1>
 
-            <div className="field">
+            <div className="form_field">
               <label className="label" htmlFor="">Mail</label>
               <input className="input" name="mail" type="text" placeholder="email" value={this.state.mail} onChange={this.handleInput} />
             </div>
 
-            <div>
+            <div className="form_field">
               <label className="label" htmlFor="">Password</label>
               <input className="input" name="password" type="password" placeholder="******" value={this.state.password} onChange={this.handleInput} />  
             </div>

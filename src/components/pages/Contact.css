@@ -2,3 +2,7 @@
   max-width: 70vh;
   margin: auto;
 }
+
+.send_btn{
+  justify-content: center !important;
+}

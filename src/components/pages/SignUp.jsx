@@ -53,7 +53,7 @@ export default class SignUp extends Component {
           <form className="form " onSubmit={this.handleSubmit}>
             <h1 className="sign_Title">SIGNUP PAGE</h1>
             <p className="intro_text">It will be quick</p>
-            <div className="field">
+            <div className="form_field">
               <label className="label" htmlFor="firstName">
                 First Name
               </label>
@@ -66,7 +66,7 @@ export default class SignUp extends Component {
               />
             </div>
 
-            <div className="field">
+            <div className="form_field">
               <label className="label" htmlFor="lastName">
                 Last Name
               </label>
@@ -79,7 +79,7 @@ export default class SignUp extends Component {
               />
             </div>
 
-            <div className="field">
+            <div className="form_field">
               <label className="label" htmlFor="mail">
                 Email
               </label>
@@ -92,7 +92,7 @@ export default class SignUp extends Component {
               />
             </div>
 
-            <div className="field">
+            <div className="form_field">
               <label className="label" htmlFor="password">
                 Password
               </label>
