@@ -69,17 +69,18 @@ export default class FormServices extends Component {
     const { currentService, services, warningMessage } = this.state;
     return (
       <div>
-        <h2 className="title">
-          Step 2 : Choose the services for which you need our assistance and
-          your preferences
-        </h2>
+        <h1>Step 1 : Give us your basic moving infos</h1>{" "}
         <ServicesList
           parentHandler={this.setCurrentService}
           services={services}
         />
         {currentService === "basic-user-infos" && (
           <FormUserInfos setUserInfos={this.setCurrentServiceInfos} />
-        )}
+        )}{" "}
+        <h2 className="title">
+          Step 2 : Choose the services for which you need our assistance and
+          your preferences
+        </h2>
         {currentService === "housing" && (
           <ServiceHousing setHousingInfos={this.setCurrentServiceInfos} />
         )}

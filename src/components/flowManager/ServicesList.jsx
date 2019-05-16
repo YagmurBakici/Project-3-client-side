@@ -14,6 +14,7 @@ export default function ServicesList({ services, parentHandler }) {
           {service.toUpperCase().replace(/-/g, " ")}
           <br />
           <br />
+
           <i className="">{service === "housing" && "Service fee: 1200 €"}</i>
           <i className="">
             {service === "school" && "Service fee: 500 € per child"}
