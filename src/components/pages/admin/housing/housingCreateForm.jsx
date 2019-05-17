@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { createNewHouse } from "../../../../API/HousesApi";
 import { getAllcities } from "../../../../API/CityApi";
+import "./housing.css";
 
 const housingTypes = ["house", "apartment", "duplex"];
 const lifestyles = ["family friendly", "lively", "young but calm"];
@@ -84,11 +85,11 @@ export default class HousingCreateForm extends Component {
 
   render() {
     return (
-      <form id="house_create_form" onSubmit={this.handleSubmit}>
-        <label htmlFor="name">house name</label>
-        <input name="name" type="text" onChange={this.handleChange} required />
-        <label htmlFor="cities">cities</label>
+      <form className="form_Container create_house_Container" id="house_create_form" onSubmit={this.handleSubmit}>
+        <label className="label" htmlFor="name">house name</label>
+        <input className="input" name="name" type="text" onChange={this.handleChange} required />
 
+        <label className="label" htmlFor="cities">cities</label>
         <select name="city" id="cities" onChange={this.handleChange}>
           {this.state.cities.length &&
             this.state.cities.map((city, index) => (
@@ -97,7 +98,9 @@ export default class HousingCreateForm extends Component {
               </option>
             ))}
         </select>
-        <label>housing type</label>
+
+
+        <label className="label">housing type</label>
         <select
           name="housingType"
           id="housingType"
@@ -111,19 +114,22 @@ export default class HousingCreateForm extends Component {
             ))}
         </select>
 
-        <label>description</label>
+
+        <label className="label">description</label>
         <input
+
           name="description"
           type="text"
           onChange={this.handleChange}
           required
         />
 
-        <label>Address</label>
-        <input name="address" type="text" onChange={this.handleChange} />
+        <label className="label">Address</label>
+        <input className="input" name="address" type="text" onChange={this.handleChange} />
 
-        <label htmlFor="bedrooms">Bedrooms</label>
+        <label className="label" htmlFor="bedrooms">Bedrooms</label>
         <input
+          className="input"
           id="bedrooms"
           name="bedrooms"
           type="number"
@@ -132,8 +138,9 @@ export default class HousingCreateForm extends Component {
           onChange={this.handleChange}
         />
 
-        <label htmlFor="bathrooms">Bathrooms</label>
+        <label className="label" htmlFor="bathrooms">Bathrooms</label>
         <input
+          className="input"
           id="bathrooms"
           name="bathrooms"
           type="number"
@@ -142,7 +149,7 @@ export default class HousingCreateForm extends Component {
           onChange={this.handleChange}
         />
 
-        <label>lifestyle</label>
+        <label className="label">lifestyle</label>
         <select name="lifestyle" id="lifestyle" onChange={this.handleChange}>
           {this.state.lifestyles.length &&
             this.state.lifestyles.map((type, index) => (
@@ -152,8 +159,9 @@ export default class HousingCreateForm extends Component {
             ))}
         </select>
 
-        <label htmlFor="monthlyRent">Monthly Rent</label>
+        <label className="label" htmlFor="monthlyRent">Monthly Rent</label>
         <input
+          className="input"
           id="monthlyRent"
           name="monthlyRent"
           type="number"
@@ -162,10 +170,13 @@ export default class HousingCreateForm extends Component {
           onChange={this.handleChange}
         />
 
-        <div id="amenities">
-          Amenities : <br />
-          <label htmlFor="balcony" className="label" />
+        
+          <h2 className="amenities_title">Amenities :</h2>
+          <div className="amenities_checkbox" id="amenities">
+
+          
           <div className="amenities-checkboxes">
+          <label className="label" htmlFor="balcony" className="label" />
             <input
               type="checkbox"
               id="balcony"
@@ -189,6 +200,8 @@ export default class HousingCreateForm extends Component {
               onChange={this.handleCheckboxes}
             />{" "}
             Garden
+          </div>
+          <div className="amenities-checkboxes">
             <label htmlFor="parking" className="label" />
             <input
               type="checkbox"
@@ -216,7 +229,7 @@ export default class HousingCreateForm extends Component {
           </div>
         </div>
 
-        <button>ok</button>
+        <button className="button is-link input_send">ok</button>
       </form>
     );
   }

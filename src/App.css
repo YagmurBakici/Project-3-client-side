@@ -10,11 +10,6 @@ body {
   font-family: "Nunito", sans-serif !important;
 }
 
-#house_create_form {
-  position: relative;
-  top: 100px;
-  padding-top: 40px;
-}
 
 .amenities-checkboxes {
   display: flex;
