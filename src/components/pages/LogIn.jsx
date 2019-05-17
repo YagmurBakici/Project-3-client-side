@@ -8,7 +8,7 @@ import "./LogIn.css";
 export default class LogIn extends Component {
   constructor(props) {
     super(props);
-    this.state = { mail: "", password: "" };
+    this.state = { mail: "Admin@xpt.com", password: "Admin1234567890" };
     this.service = new AuthService();
     // console.log(this.props)
   }

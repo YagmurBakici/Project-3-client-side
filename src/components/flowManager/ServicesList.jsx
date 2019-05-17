@@ -15,15 +15,11 @@ export default function ServicesList({ services, parentHandler }) {
           <br />
           <br />
 
-          <i className="">{service === "housing" && "Service fee: 1200 €"}</i>
-          <i className="">
-            {service === "school" && "Service fee: 500 € per child"}
-          </i>
-          <i className="">{service === "bank" && "Service fee: 150 €"}</i>
-          <i className="">{service === "insurance" && "Service fee: 200 €"}</i>
-          <i className="">
-            {service === "household-package" && "Service fee: 100 €"}
-          </i>
+          <i className="">{service === "housing"}</i>
+          <i className="">{service === "school"}</i>
+          <i className="">{service === "bank"}</i>
+          <i className="">{service === "insurance"}</i>
+          <i className="">{service === "household-package"}</i>
         </li>
       ))}
     </ul>

@@ -5,6 +5,22 @@
   padding: 0;
   font-family: "Nunito", sans-serif;
 }
+
+#house_create_form {
+  position: relative;
+  top: 100px;
+  padding-top: 40px;
+}
+
+.amenities-checkboxes {
+  display: flex;
+  align-items: center;
+}
+
+.city-list-btn {
+  outline: none;
+}
+
 button {
   cursor: pointer;
   display: block;

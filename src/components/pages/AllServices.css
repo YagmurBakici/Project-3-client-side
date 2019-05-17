@@ -1,7 +1,7 @@
 .list {
   margin-top: 10rem !important;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: auto;
   border: none !important;
@@ -13,12 +13,14 @@ li.servicesBtn {
   position: relative;
   font-size: inherit;
   font-family: inherit;
+
   color: white;
   padding: 4rem;
   margin: 2rem;
   outline: none;
   border: none;
   border-radius: 6px;
+  width: 17rem;
   background-color: #55c9d8;
   overflow: hidden;
   cursor: pointer;

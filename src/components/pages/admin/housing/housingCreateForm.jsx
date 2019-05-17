@@ -18,7 +18,7 @@ export default class HousingCreateForm extends Component {
         bathrooms: 0,
         bedrooms: 0,
         city: "",
-        housingType: "housingType",
+        housingType: "",
         lifestyle: "",
         description: "",
         amenities: {
@@ -36,7 +36,12 @@ export default class HousingCreateForm extends Component {
 
   componentDidMount() {
     getAllcities().then(res => {
-      this.setState({ cities: res.data.dbRes });
+      const { houseInfos: copy } = this.state;
+      // console.log("ici", copy, this.state);
+      copy.city = res.data.dbRes[0]._id;
+      copy.housingType = housingTypes[0];
+      copy.lifestyle = lifestyles[0];
+      this.setState({ cities: res.data.dbRes, houseInfos: copy });
     });
   }
 
@@ -69,28 +74,19 @@ export default class HousingCreateForm extends Component {
     // call to the backend
     // Post request
 
-    createNewHouse(
-      // this.state.houseInfos
-      // houseInfos: this.state.houseInfos
-      {
-        name: this.state.houseInfos.name,
-        description: this.state.houseInfos.description,
-        bedrooms: this.state.houseInfos.bedrooms,
-        monthlyRent: this.state.houseInfos.monthlyRent,
-        address: this.state.houseInfos.address
-      }
-    )
+    createNewHouse(this.state.houseInfos)
       .then(res => {
-        console.log(res.data);
+        console.log("created ?", res.data);
+        this.props.updateHouseList(this.state.houseInfos);
       })
       .catch(err => console.error(err.response));
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form id="house_create_form" onSubmit={this.handleSubmit}>
         <label htmlFor="name">house name</label>
-        <input name="name" type="text" onChange={this.handleChange} />
+        <input name="name" type="text" onChange={this.handleChange} required />
         <label htmlFor="cities">cities</label>
 
         <select name="city" id="cities" onChange={this.handleChange}>
@@ -116,24 +112,33 @@ export default class HousingCreateForm extends Component {
         </select>
 
         <label>description</label>
-        <input name="description" type="text" onChange={this.handleChange} />
+        <input
+          name="description"
+          type="text"
+          onChange={this.handleChange}
+          required
+        />
 
         <label>Address</label>
         <input name="address" type="text" onChange={this.handleChange} />
 
         <label htmlFor="bedrooms">Bedrooms</label>
         <input
+          id="bedrooms"
           name="bedrooms"
           type="number"
-          min="1"
+          min="0"
+          value={this.state.houseInfos.bedrooms}
           onChange={this.handleChange}
         />
 
-        <label htmlFor="Bathrooms">Bathrooms</label>
+        <label htmlFor="bathrooms">Bathrooms</label>
         <input
-          name="Bathrooms"
+          id="bathrooms"
+          name="bathrooms"
           type="number"
-          min="1"
+          min="0"
+          value={this.state.houseInfos.bathrooms}
           onChange={this.handleChange}
         />
 
@@ -147,11 +152,13 @@ export default class HousingCreateForm extends Component {
             ))}
         </select>
 
-        <label htmlFor="monthly_rent">Monthly Rent</label>
+        <label htmlFor="monthlyRent">Monthly Rent</label>
         <input
-          name="monthly_rent"
+          id="monthlyRent"
+          name="monthlyRent"
           type="number"
           min="1"
+          required
           onChange={this.handleChange}
         />
 
