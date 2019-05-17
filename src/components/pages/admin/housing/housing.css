@@ -1,0 +1,18 @@
+.create_house_Container{
+    margin: auto !important;
+}
+
+.amenities_checkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+}
+.amenities-checkboxes{
+    display: flex;
+    flex-direction: column;
+}
+.amenities_title{
+    font-size: 2rem;
+}

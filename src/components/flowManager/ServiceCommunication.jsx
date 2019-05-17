@@ -58,7 +58,7 @@ export default class ServiceCommunication extends Step {
             <br />
           </React.Fragment>
         ))}
-        <button>Save and choose another service</button>
+        <button className="choose">Save and choose another service</button>
       </form>
     );
   }

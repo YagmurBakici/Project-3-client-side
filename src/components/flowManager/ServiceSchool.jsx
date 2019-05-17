@@ -146,7 +146,7 @@ export default class ServiceSchool extends Step {
             </select>
           </div>
         ))}
-        <button>Save and choose another service</button>{" "}
+        <button className="choose">Save and choose another service</button>{" "}
       </form>
     ) : (
       <p>You didn't declare any children</p>

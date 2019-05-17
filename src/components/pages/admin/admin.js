@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HousingList from "./housing/housingList";
 import Cities from "./cities/cities";
 import HousingCreateForm from "./housing/housingCreateForm";
+import "./admin.css";
 class AdminPage extends Component {
   state = {
     activeCityId: null
@@ -21,17 +22,26 @@ class AdminPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="admin_page_Container ">
+        <h1 className="admin_page_Title">Add a new House</h1>
         <HousingCreateForm updateHouseList={this.handleHouseListUpdate} />
         <hr />
         <hr />
-        <h2>our houses</h2>
-        <Cities
-          activeCityId={this.state.activeCityId}
-          setActiveCity={this.handleActiveCity}
-        />
-        <HousingList activeCityId={this.state.activeCityId} />
-        <h2>our schools</h2>
+        <h2 className="admin_page_Title">Display</h2>
+        <div className="form_Container create_house_Container">
+          <div className="cities_Container">
+            <Cities
+              activeCityId={this.state.activeCityId}
+              setActiveCity={this.handleActiveCity}
+            />
+          </div>
+
+          <div className="housing_Container">
+            <HousingList activeCityId={this.state.activeCityId} />
+          </div>
+
+        </div>
+
       </div>
     );
   }

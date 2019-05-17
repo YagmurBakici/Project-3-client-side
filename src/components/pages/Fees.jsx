@@ -10,7 +10,7 @@ export default function Fees({ props }) {
   return (
     <React.Fragment>
       <section className="fee_Container">
-        <h1 className="fee">Service Fees</h1>
+        <h1 className="fee">SERVICE FEES</h1>
         <div className="services fees">
           <OneFee
             name="Housing"

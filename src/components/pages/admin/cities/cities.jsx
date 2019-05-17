@@ -29,7 +29,7 @@ class Cities extends Component {
     return cities.length
       ? cities.map((city, index) => (
           <button
-            className="city-list-btn"
+            className="button is-link input_send"
             style={{ background: activeCityId === city._id ? "red" : null }}
             key={city._id}
             onClick={e => this.props.setActiveCity(city._id)}
