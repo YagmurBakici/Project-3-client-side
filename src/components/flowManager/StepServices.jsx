@@ -68,42 +68,49 @@ export default class FormServices extends Component {
   render() {
     const { currentService, services, warningMessage } = this.state;
     return (
-      <div>
-        <h1>Step 1 : Give us your basic moving infos</h1>{" "}
-        <ServicesList
-          parentHandler={this.setCurrentService}
-          services={services}
-        />
-        {currentService === "basic-user-infos" && (
-          <FormUserInfos setUserInfos={this.setCurrentServiceInfos} />
-        )}{" "}
-        <h2 className="title">
-          Step 2 : Choose the services for which you need our assistance and
-          your preferences
-        </h2>
-        {currentService === "housing" && (
-          <ServiceHousing setHousingInfos={this.setCurrentServiceInfos} />
-        )}
-        {currentService === "school" && (
-          <ServiceSchool setSchoolInfos={this.setCurrentServiceInfos} />
-        )}
-        {currentService === "bank" && (
-          <ServiceBank setBankInfos={this.setCurrentServiceInfos} />
-        )}
-        {currentService === "insurance" && (
-          <ServiceInsurance setInsuranceInfos={this.setCurrentServiceInfos} />
-        )}
-        {currentService === "household-package" && (
-          <ServiceCommunication
-            setCommunicationInfos={this.setCurrentServiceInfos}
+      <React.Fragment>
+        <div className="step1_Container">
+          <h1 className="title step2_title">
+            Step 1 : Give us your basic moving infos
+          </h1>{" "}
+          <ServicesList
+            parentHandler={this.setCurrentService}
+            services={services}
           />
-        )}
-        {!warningMessage && (
-          <button onClick={this.handleSubmit}>
-            SUBMIT all and go to next step
-          </button>
-        )}
-      </div>
+        </div>
+
+        <div className="step2_Container">
+          <h2 className="title step2_title">
+            Step 2 : Choose the services for which you need our assistance and
+            your preferences
+          </h2>
+          {currentService === "basic-user-infos" && (
+            <FormUserInfos setUserInfos={this.setCurrentServiceInfos} />
+          )}
+          {currentService === "housing" && (
+            <ServiceHousing setHousingInfos={this.setCurrentServiceInfos} />
+          )}
+          {currentService === "school" && (
+            <ServiceSchool setSchoolInfos={this.setCurrentServiceInfos} />
+          )}
+          {currentService === "bank" && (
+            <ServiceBank setBankInfos={this.setCurrentServiceInfos} />
+          )}
+          {currentService === "insurance" && (
+            <ServiceInsurance setInsuranceInfos={this.setCurrentServiceInfos} />
+          )}
+          {currentService === "household-package" && (
+            <ServiceCommunication
+              setCommunicationInfos={this.setCurrentServiceInfos}
+            />
+          )}
+          {!warningMessage && (
+            <button onClick={this.handleSubmit} className="go">
+              Submit all or click on another Service
+            </button>
+          )}
+        </div>
+      </React.Fragment>
     );
   }
 }
