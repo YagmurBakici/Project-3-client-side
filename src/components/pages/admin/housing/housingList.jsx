@@ -1,56 +1,89 @@
 import React, { Component } from "react";
-import { getAllHouse } from "../../../../API/HousesApi";
+import { getAllHouse, deleteHouse } from "../../../../API/HousesApi";
 
 class Housing extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeCity: null, houseList: [], backUpList: [] };
+    this.state = { activeCityId: null, houseList: [], backUpList: [] };
   }
 
   UNSAFE_componentWillReceiveProps(newProps) {
-    this.setState({ activeCity: newProps.activeCity }, () => {
-      this.filterHouses();
+    console.log("new prop", newProps);
+    this.setState({ activeCityId: newProps.activeCityId }, () => {
+      this.fetchAllHouses();
     });
   }
 
   filterHouses() {
     // console.log("here in filter", this.state.houseList.length);
 
-    if (!this.state.activeCity) return;
+    if (!this.state.activeCityId) return;
 
-    const filtered = this.state.backUpList.filter(house =>
-      this.state.activeCity === house.city.name ? house : false
-    );
+    const filtered = this.state.backUpList.filter(house => {
+      return this.state.activeCityId === house.city._id ? house : false;
+    });
+
+    console.log(filtered);
 
     this.setState({ houseList: filtered });
   }
 
-  componentDidMount = () => {
+  fetchAllHouses() {
     getAllHouse()
       .then(dataHouses => {
-        // console.log("iciiii", dataHouses.data);
-        this.setState({
-          houseList: [...dataHouses.data],
-          backUpList: [...dataHouses.data]
-        });
+        this.setState(
+          {
+            houseList: [...dataHouses.data],
+            backUpList: [...dataHouses.data]
+          },
+          () => this.filterHouses()
+        );
       })
       .catch(error => console.log(error));
+  }
+
+  componentDidMount = () => {
+    this.fetchAllHouses();
+  };
+
+  deleteHouse(id) {
+    const filteredBackup = this.state.backUpList.filter(el => {
+      return el._id !== id;
+    });
+    const filteredCurrentList = this.state.houseList.filter(el => {
+      return el._id !== id;
+    });
+    this.setState({
+      houseList: filteredCurrentList,
+      backUpList: filteredBackup
+    });
+  }
+
+  handleDelete = e => {
+    const id = e.target.getAttribute("data-id");
+    deleteHouse(id)
+      .then(res => {
+        this.deleteHouse(id);
+      })
+      .catch(err => console.error(err));
   };
 
   render() {
-    console.log(
-      "---------------------",
-      this.props.activeCity,
-      this.state.houseList
-    );
     const { houseList } = this.state;
+    console.log("list", houseList);
     return (
       <ul>
-        {houseList.map((house, index) =>
-          house.city.name === this.props.activeCity ? (
-            <li key={index}>{house.name}</li>
-          ) : null
-        )}
+        {houseList.length &&
+          houseList.map((house, index) =>
+            house.city._id === this.props.activeCityId ? (
+              <li key={index}>
+                <span>{house.name}</span>
+                <i data-id={house._id} onClick={this.handleDelete}>
+                  X
+                </i>
+              </li>
+            ) : null
+          )}
       </ul>
     );
   }

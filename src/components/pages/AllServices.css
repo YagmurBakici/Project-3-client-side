@@ -40,6 +40,7 @@ li.servicesBtn {
   outline: none;
   border: none;
   border-radius: 6px;
+  width: 17rem;
   background-color: #55c9d8;
   overflow: hidden;
   cursor: pointer;

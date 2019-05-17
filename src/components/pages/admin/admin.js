@@ -4,23 +4,33 @@ import Cities from "./cities/cities";
 import HousingCreateForm from "./housing/housingCreateForm";
 class AdminPage extends Component {
   state = {
-    activeCity: null
+    activeCityId: null
   };
 
-  handleActiveCity = cityName => {
-    console.log("active city changed : ", cityName);
-    this.setState({ activeCity: cityName });
+  handleActiveCity = cityId => {
+    console.log("active city changed : ", cityId);
+    this.setState({ activeCityId: cityId });
+  };
+
+  handleHouseListUpdate = house => {
+    console.log("new house", house.city);
+    this.setState({ activeCityId: house.city }, () => {
+      console.log("active city id changed", this.state.activeCityId);
+    });
   };
 
   render() {
     return (
       <div>
-        <HousingCreateForm />
+        <HousingCreateForm updateHouseList={this.handleHouseListUpdate} />
         <hr />
         <hr />
         <h2>our houses</h2>
-        <Cities setActiveCity={this.handleActiveCity} />
-        <HousingList activeCity={this.state.activeCity} />
+        <Cities
+          activeCityId={this.state.activeCityId}
+          setActiveCity={this.handleActiveCity}
+        />
+        <HousingList activeCityId={this.state.activeCityId} />
         <h2>our schools</h2>
       </div>
     );
