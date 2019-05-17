@@ -71,7 +71,7 @@ export default class FormServices extends Component {
       <React.Fragment>
         <div className="step1_Container">
           <h1 className="title step2_title">
-            Step 1 : Give us your basic moving infos
+            Roll down and choose the services you need:
           </h1>{" "}
           <ServicesList
             parentHandler={this.setCurrentService}
@@ -80,10 +80,7 @@ export default class FormServices extends Component {
         </div>
 
         <div className="step2_Container">
-          <h2 className="title step2_title">
-            Step 2 : Choose the services for which you need our assistance and
-            your preferences
-          </h2>
+          <h2 className="title step2_title">Fill the form:</h2>
           {currentService === "basic-user-infos" && (
             <FormUserInfos setUserInfos={this.setCurrentServiceInfos} />
           )}
