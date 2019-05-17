@@ -25,7 +25,6 @@ export default class AllServices extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Step 2 : Services</h1>
         {/* <div className="container-services">
           <OneService name="Housing" />
           <OneService name="Schools" />
@@ -33,12 +32,17 @@ export default class AllServices extends Component {
           <OneService name="Insurances" />
           <OneService name="Household Package (Electricity, Gas, Phone, Television and Internet subscriptions)" />
         </div> */}
-        <RegisterSteps
-          className="second-step"
-          step="2"
-          history={this.props.history}
-          nextUrl="/signup"
-        />
+        <div className="services_Page">
+          <h1 className="Service_Title">SERVICES</h1>
+          <div className="services_Container">
+            <RegisterSteps
+              className="second-step"
+              step="2"
+              history={this.props.history}
+              nextUrl="/signup"
+            />
+          </div>
+        </div>
       </React.Fragment>
     );
   }

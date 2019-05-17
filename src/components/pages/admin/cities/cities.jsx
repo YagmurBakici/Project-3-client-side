@@ -5,8 +5,14 @@ class Cities extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeCityId: null,
       cities: []
     };
+  }
+
+  UNSAFE_componentWillReceiveProps(newProps) {
+    console.log("cities list", newProps);
+    this.setState({ activeCityId: newProps.activeCityId });
   }
 
   componentDidMount = () => {
@@ -19,15 +25,16 @@ class Cities extends Component {
   };
 
   render() {
-    const { cities } = this.state;
-
+    const { cities, activeCityId } = this.state;
     return cities.length
-      ? cities.map((oneCity, index) => (
+      ? cities.map((city, index) => (
           <button
-            key={index}
-            onClick={e => this.props.setActiveCity(oneCity.name)}
+            className="button is-link input_send"
+            style={{ background: activeCityId === city._id ? "red" : null }}
+            key={city._id}
+            onClick={e => this.props.setActiveCity(city._id)}
           >
-            {oneCity.name}
+            {city.name}
           </button>
         ))
       : null;

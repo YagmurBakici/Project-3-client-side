@@ -13,6 +13,22 @@
   padding: 20px;
   margin: 20px;
 }
+
+.profile-title {
+  font-size: 1rem;
+  /* text-align: center; */
+  color: #f18268;
+  font-weight: bold;
+}
+
+.h3 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.li-element {
+  margin-left: 2rem;
+}
 .field {
   max-width: 40vh;
   margin: 40px auto;

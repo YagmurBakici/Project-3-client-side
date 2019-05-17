@@ -6,31 +6,50 @@ import "./SignUp.css";
 export default class SignUp extends Component {
   constructor(props) {
     super(props);
-    this.state = { firstName: "", lastName: "", mail: "", password: "" };
+    this.state = {
+      firstName: "",
+      lastName: "",
+      mail: "",
+      password: "",
+      nbAdults: 0,
+      nbChildren: 0
+    };
     this.service = new AuthService();
     console.log(this.props);
     this.history = this.props.history;
   }
 
+  componentDidMount() {
+    const possibleKeys = [
+      "userInfos",
+      "housingInfos",
+      "schoolInfos",
+      "bankInfos",
+      "insuranceInfos",
+      "communicationInfos"
+    ];
+    const services = {};
+
+    possibleKeys.forEach(key => {
+      var check = window.localStorage.getItem(key);
+      if (check) {
+        services[key] = JSON.parse(check);
+      }
+    });
+
+    this.setState({ services: services }, () => {
+      console.log("previous infos in localstorage", this.state);
+    });
+  }
+
   handleSubmit = evt => {
     evt.preventDefault();
-    const firstName = this.state.firstName;
-    const lastName = this.state.lastName;
-    const mail = this.state.mail;
-    const password = this.state.password;
-
+    // return console.log(this.state);
     this.service
-      .signup(firstName, lastName, mail, password)
+      .signup(this.state)
       .then(res => {
         console.log(res);
-        this.setState({
-          firstName: "",
-          lastName: "",
-          mail: "",
-          password: ""
-        });
         this.props.getUser(res);
-        console.log(this.history);
         this.history.push("/profile");
       })
       .catch(error => console.log(error));
@@ -46,7 +65,7 @@ export default class SignUp extends Component {
       <React.Fragment>
         <div className="form_Container">
           <form className="form " onSubmit={this.handleSubmit}>
-            <h1 className="sign_Title">SIGNUP PAGE</h1>
+            <h1 className="sign_Title">SIGN UP</h1>
             <p className="intro_text">It will be quick</p>
             <div className="form_field">
               <label className="label" htmlFor="firstName">

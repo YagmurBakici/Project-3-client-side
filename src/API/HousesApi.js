@@ -31,4 +31,4 @@ export const getOneSeoulHouse = id =>
 
 export const editHouse = id => axios.post(`${APIurl}/edit/:id`, id);
 
-export const deleteHouse = id => axios.delete(`${APIurl}/:id`, id);
+export const deleteHouse = id => axios.delete(`${APIurl}/${id}`);

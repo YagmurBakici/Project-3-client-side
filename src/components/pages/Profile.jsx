@@ -20,6 +20,35 @@ export default class Profile extends Component {
     mail: ""
   };
 
+  componentDidMount() {
+    console.log("ici");
+
+    const possibleKeys = [
+      "userInfos",
+      "housingInfos",
+      "schoolInfos",
+      "bankInfos",
+      "insuranceInfos",
+      "communicationInfos"
+    ];
+    const services = {};
+
+    possibleKeys.forEach(key => {
+      var check = window.localStorage.getItem(key);
+      if (check) {
+        services[key] = JSON.parse(check);
+      }
+    });
+
+    for (let key in services) {
+      console.log(key, services[key]);
+      this.setState({ [key]: services[key] });
+    }
+    // this.setState({ services: services }, () => {
+    //   console.log("previous infos in localstorage", this.state);
+    // });
+  }
+
   handleDnd = fileList => {
     this.setState({ fileList });
   };
@@ -64,11 +93,133 @@ export default class Profile extends Component {
     console.log("______", this.state.myProfil);
     return (
       <div className="profile">
+        <h1 className="ptitle">YOUR PROFILE</h1>
         <div className="prof">
-          <h1 className="ptitle">PROFILE</h1>
+          <h2 className="profile-title">YOUR SERVICES PREFERENCES</h2>
+          <h3 className="h3">User information</h3>
+          {/* <div> {JSON.parse(window.localStorage.getItem("userInfos"))}</div> */}
+          <ul>
+            {this.state.userInfos && (
+              <React.Fragment>
+                <li className="li-element">
+                  Destination city: {this.state.userInfos.city}
+                </li>
+                <li className="li-element">
+                  Number of adults moving: {this.state.userInfos.nbAdults}
+                </li>
+                <li className="li-element">
+                  Number of children moving: {this.state.userInfos.nbChildren}
+                </li>
+                <li className="li-element">
+                  Date of arrival: {this.state.userInfos.arrivalDate}
+                </li>
+              </React.Fragment>
+            )}
+          </ul>
+          <br />
+          <h3 className="h3">Housing preferences</h3>
+          <ul>
+            {this.state.housingInfos && (
+              <React.Fragment>
+                <li className="li-element">
+                  Number of bathrooms: {this.state.housingInfos.bathrooms}
+                </li>
+                <li className="li-element">
+                  Number of bedrooms: {this.state.housingInfos.bedrooms}
+                </li>
+                <li className="li-element">
+                  Housing type: {this.state.housingInfos.housingType}
+                </li>
+                <li className="li-element">
+                  Lifestyle: {this.state.housingInfos.lifestyle}
+                </li>
+                Amenities:
+                <br />{" "}
+                <li className="li-element">
+                  Balcony :{" "}
+                  {Boolean(this.state.housingInfos.balcony).toString()}
+                </li>
+                <li className="li-element">
+                  Terrace: {Boolean(this.state.housingInfos.terrace).toString()}
+                </li>
+                <li className="li-element">
+                  Garden: {Boolean(this.state.housingInfos.garden).toString()}
+                </li>
+                <li className="li-element">
+                  Parking: {Boolean(this.state.housingInfos.parking).toString()}
+                </li>
+                <li className="li-element">
+                  Handicap access:{" "}
+                  {Boolean(this.state.housingInfos.handicapAccess).toString()}
+                </li>
+                <li className="li-element">
+                  Pet friendly:{" "}
+                  {Boolean(this.state.housingInfos.petFriendly).toString()}
+                </li>
+                <li className="li-element">
+                  Maximum monthly rent:{" "}
+                  {Boolean(this.state.housingInfos.monthlyRent).toString()}
+                </li>
+              </React.Fragment>
+            )}
+          </ul>
+          <br />
+          <h3 className="h3">School preferences</h3>
+          {this.state.schoolInfos &&
+            this.state.schoolInfos.map((info, index) => (
+              <ul key={index}>
+                {" "}
+                Children {index + 1}:
+                <li className="li-element">
+                  Language: {info.language || "no level set yet"}
+                </li>
+                <li className="li-element">
+                  School type: {info.schoolType || "no level set yet"}
+                </li>{" "}
+                <li className="li-element">
+                  Level: {info.level || "no level set yet"}
+                </li>
+              </ul>
+            ))}
+          <br />
+          <h3 className="h3">Bank need</h3>
+          <ul>
+            {this.state.bankInfos && (
+              <React.Fragment>
+                <li className="li-element">
+                  Need: {this.state.bankInfos.need}
+                </li>
+              </React.Fragment>
+            )}
+          </ul>
+          <br />
+          <h3 className="h3">Insurance need</h3>
+          <ul>
+            {this.state.insuranceInfos && (
+              <React.Fragment>
+                <li className="li-element">
+                  Need: {this.state.insuranceInfos.need}
+                </li>
+              </React.Fragment>
+            )}
+          </ul>
+          <br />
+          <h3 className="h3">Household package need</h3>
+          <ul>
+            {this.state.communicationInfos && (
+              <React.Fragment>
+                <li className="li-element">
+                  Need: {this.state.communicationInfos.need}
+                </li>
+              </React.Fragment>
+            )}
+          </ul>
+        </div>
+        <div className="prof">
+          <h2 className="profile-title">MANDATORY DOCUMENTS CHECKLIST</h2>
           <Checkbox tickColor="blue" /> Passport (copy of all pages) <br />
           <Checkbox /> ID <br />
-          <Checkbox />5 Photos <br />
+          <Checkbox />5 photos of each family member <br />
           <Checkbox /> Last tax declaration <br />
           <Checkbox />
           Signed employment contract or offer letter from your future employer{" "}

@@ -146,7 +146,6 @@ class App extends Component {
           <Route path="/editUser/:id" component={UserEdit} />
           <Route path="/admin" component={Admin} />
         </Switch>
-        <Footer />
       </div>
     );
   }

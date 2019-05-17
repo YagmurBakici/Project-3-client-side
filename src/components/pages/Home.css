@@ -24,7 +24,7 @@
   text-align: justify;
   min-width: 10vw;
   max-width: 50vw;
-  margin: 24vh 0 5vh 0vw;
+  margin: 24vh 1vh 5vh 0vw;
   font-size: 1.3vw;
 }
 
@@ -97,6 +97,9 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .fullHeight {
+    height: 118vh !important;
+  }
   .image {
     order: 1;
   }
@@ -113,6 +116,7 @@
   }
 }
 .quote {
+  margin-top: 2rem;
   text-align: center;
   margin-left: 30%;
   color: #55c9d8;

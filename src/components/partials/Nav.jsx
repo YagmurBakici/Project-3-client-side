@@ -49,14 +49,22 @@ export default class Nav extends Component {
               HOME
             </NavLink>
             <NavLink
+              exact
+              to="/allservices"
+              className="navbar-items"
+              id="dropdown-element1"
+            >
+              SERVICES
+            </NavLink>
+            <NavLink to="/fees" className="navbar-items" id="dropdown-element3">
+              FEES
+            </NavLink>
+            <NavLink
               to="/contact"
               className="navbar-items"
               id="dropdown-element2"
             >
               CONTACT
-            </NavLink>
-            <NavLink to="/fees" className="navbar-items" id="dropdown-element3">
-              FEES
             </NavLink>
           </div>
           <div className="navbar-end">
