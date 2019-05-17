@@ -11,7 +11,7 @@ export default function Fees({ props }) {
     <React.Fragment>
       <section className="fee_Container">
         <h1 className="fee">Service Fees</h1>
-        <div className="container-services">
+        <div className="services fees">
           <OneFee
             name="Housing"
             icon={faHome}

@@ -92,6 +92,7 @@ class DnD extends Component {
             style={{
               border: "dashed grey 4px",
               backgroundColor: "rgba(255,255,255,.8)",
+
               position: "absolute",
               top: 0,
               bottom: 0,

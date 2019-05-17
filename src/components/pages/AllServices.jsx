@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import RegisterSteps from "./../flowManager/RegisterSteps";
 import "./AllServices.css";
+import {} from "@fortawesome/free-solid-svg-icons";
 
 export default class AllServices extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ export default class AllServices extends Component {
           <OneService name="Household Package (Electricity, Gas, Phone, Television and Internet subscriptions)" />
         </div> */}
         <RegisterSteps
+          className="second-step"
           step="2"
           history={this.props.history}
           nextUrl="/signup"

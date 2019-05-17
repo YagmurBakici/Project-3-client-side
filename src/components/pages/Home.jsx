@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 // import Boxes from "./../partials/Boxes";
 // import InitialForm from "./../InitialForm";
-import RegisterSteps from "./../flowManager/RegisterSteps";
+import Footer from "../partials/Footer";
+
 import "./Home.css";
 
 export default class Home extends Component {
@@ -14,53 +15,49 @@ export default class Home extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="homeall">
         <div className="home">
           <div className="intro">
             XPT is designed to provide you with all the resources you need to
-            ease you into life in a new city. Our aim is to make things easier
-            for you as you plan your move and settle into your new life in.XPT
-            is there to make you feel quickly at home wherever you are in the
+            ease your life in a new city. Our aim is to make things easier for
+            you as you plan your move and settle into your new life in.XPT is
+            there to make you feel quickly at home wherever you are in the
             world.
-            <br /> Easier, faster, cheaper.
+            <br /> <strong className="quote">Easier, faster, cheaper.</strong>
             <div className="steps">
-              <strong>Step 1:</strong> Fill the form hereunder with your basic
-              information
-              <br /> <strong>Step 2:</strong> Then choose the services that you
-              need
-              <br /> <strong className="step">Step 3: </strong> Sign Up
-              <br /> <strong className="step">Step 4: </strong> Drag and drop
-              required files
+              <strong className="step">Step 1:</strong> Start by clicking the
+              bottom hereunder
+              <br /> <strong className="step">Step 2:</strong> Fill the form
+              with your basic need
+              <br /> <strong className="step">Step 3: </strong> Then choose the
+              services that you need
+              <br /> <strong className="step">Step 4: </strong> Sign Up required
+              files
               <br /> <strong className="step">Step 5: </strong> Now you can go
               and relax, we will handle all your formalities
             </div>
           </div>
-          {/* <img
+          <img
             src="image.png"
             alt="logol"
             className="image"
-            width="400"
+            width="500"
             height="200"
-          /> */}
+          />{" "}
+          */}
+          {/* <Boxes /> */}
+          {/* <InitialForm props={this.props} /> */}
+          <button
+            className="input_send button is-link started"
+            type="button"
+            onClick={() => {
+              this.props.history.push("/allservices");
+            }}
+          >
+            GET STARTED
+          </button>
         </div>
-
-        {/* <Boxes /> */}
-        {/* <InitialForm props={this.props} /> */}
-        {/*  */}
-        <button
-          className="input_send button is-link started"
-          type="button"
-          onClick={() => {
-            this.props.history.push("/allservices");
-          }}
-        >
-          GET STARTED
-        </button>
-        {/* <RegisterSteps
-          step="1"
-          history={this.props.history}
-          nextUrl="/allservices"
-        /> */}
+        {/* <Footer /> */}
       </div>
     );
   }
