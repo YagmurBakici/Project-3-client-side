@@ -80,6 +80,8 @@ a.navbar-items,
   background-color: #f18268 !important;
   border-color: transparent;
   color: #fff;
+  min-width: 5vw !important;
+  max-width: 8vw !important;
 }
 .button.is-danger:hover {
   background-color: #fbd892 !important;

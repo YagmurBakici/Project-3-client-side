@@ -96,7 +96,7 @@ export default class FormUserInfos extends Step {
             value={this.state.userInfos.arrivalDate}
           />
 
-          <button>Next step</button>
+          <button className="choose">Next step</button>
         </form>
       </div>
     );

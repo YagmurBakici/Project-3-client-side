@@ -234,7 +234,7 @@ export default class ServiceHousing extends Step {
           value={this.state.housingInfos.rent}
         />
 
-        <button>Save and choose another service</button>
+        <button className="choose">Save and choose another service</button>
       </form>
     );
   }

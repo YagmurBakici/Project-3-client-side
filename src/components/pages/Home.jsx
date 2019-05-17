@@ -16,13 +16,13 @@ export default class Home extends Component {
   render() {
     return (
       <div className="homeall">
-        <div className="home">
+        <div className="home fullHeight">
           <div className="intro">
             XPT is designed to provide you with all the resources you need to
             ease your life in a new city. Our aim is to make things easier for
             you as you plan your move and settle into your new life in.XPT is
-            there to make you feel quickly at home wherever you are in the
-            world.
+            there to make you feel quickly at home in Paris, Miami or Seoul.
+            Later on we will be all around the world!
             <br /> <strong className="quote">Easier, faster, cheaper.</strong>
             <div className="steps">
               <strong className="step">Step 1:</strong> Start by clicking the
@@ -57,7 +57,7 @@ export default class Home extends Component {
             GET STARTED
           </button>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
