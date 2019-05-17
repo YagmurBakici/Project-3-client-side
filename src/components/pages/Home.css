@@ -97,6 +97,9 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .fullHeight {
+    height: 118vh !important;
+  }
   .image {
     order: 1;
   }
