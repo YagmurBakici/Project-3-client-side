@@ -6,6 +6,7 @@
   margin: auto;
   border: none !important;
   outline: none !important;
+  max-width: 80vw !important;
 }
 li.servicesBtn {
   text-align: center;
@@ -24,6 +25,7 @@ li.servicesBtn {
   background-color: #55c9d8;
   overflow: hidden;
   cursor: pointer;
+  max-width: 18vw !important;
 }
 /* 
 li.servicesBtn:hover {
