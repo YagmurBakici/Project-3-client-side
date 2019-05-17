@@ -41,6 +41,7 @@ export default class HousingCreateForm extends Component {
   }
 
   handleChange = evt => {
+    console.log(evt.target.value);
     const copy = this.state.houseInfos;
     copy[evt.target.name] = evt.target.value;
     this.setState({ houseInfos: copy });
@@ -64,21 +65,21 @@ export default class HousingCreateForm extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log(this.state);
+    console.log(this.state.houseInfos);
     // call to the backend
     // Post request
 
-    createNewHouse({
-      name: this.state.houseInfos.name,
-      description: this.state.houseInfos.description,
-      address: this.state.houseInfos.address,
-      city: this.state.houseInfos.city,
-      bedrooms: this.state.houseInfos.bedrooms,
-      bathrooms: this.state.houseInfos.bathrooms,
-      housingType: this.state.houseInfos.housingType,
-      lifestyle: this.state.houseInfos.lifestyle,
-      monthlyRent: this.state.houseInfos.rent
-    })
+    createNewHouse(
+      // this.state.houseInfos
+      // houseInfos: this.state.houseInfos
+      {
+        name: this.state.houseInfos.name,
+        description: this.state.houseInfos.description,
+        bedrooms: this.state.houseInfos.bedrooms,
+        monthlyRent: this.state.houseInfos.monthlyRent,
+        address: this.state.houseInfos.address
+      }
+    )
       .then(res => {
         console.log(res.data);
       })
