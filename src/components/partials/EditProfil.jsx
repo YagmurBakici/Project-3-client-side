@@ -1,53 +1,55 @@
 import React, { Component } from "react";
-import AuthService from "./../auth/ajax";
-import { Link } from "react-router-dom";
-import "./SignUp.css";
+import { getUserProfil, editUser } from "../../API/UserApi";
 
-export default class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { firstName: "", lastName: "", mail: "", password: "" };
-    this.service = new AuthService();
-    console.log(this.props);
-    this.history = this.props.history;
-  }
+class EditProfil extends Component {
+  state = {
+    feebackUser: null,
+    firstName: "",
+    lastName: "",
+    mail: ""
+  };
+
+  componentDidMount = () => {
+    console.log("mount");
+    this.setState({
+      firstName: this.props.userProfil.firstName,
+      lastName: this.props.userProfil.lastName,
+      mail: this.props.userProfil.mail
+    });
+  };
 
   handleSubmit = evt => {
     evt.preventDefault();
     const firstName = this.state.firstName;
     const lastName = this.state.lastName;
     const mail = this.state.mail;
-    const password = this.state.password;
-
-    this.service
-      .signup(firstName, lastName, mail, password)
+    console.log("JE marche !");
+    editUser(this.props.userProfil.id, { firstName, lastName, mail })
       .then(res => {
-        console.log(res);
+        console.log("GOOD", res);
         this.setState({
-          firstName: "",
-          lastName: "",
-          mail: "",
-          password: ""
+          feedbackUser: "Modified Successfully"
         });
-        this.props.getUser(res);
-        console.log(this.history);
-        this.history.push("/profile");
       })
       .catch(error => console.log(error));
   };
 
   handleInput = evt => {
-    const { name, value } = evt.target;
+    const { name, value } = evt.currentTarget;
     this.setState({ [name]: value });
   };
 
   render() {
+    const { feedbackUser, firstName, lastName, mail } = this.state;
+    console.log(this.props.userProfil.firstName);
     return (
       <React.Fragment>
         <div className="form_Container">
           <form className="form " onSubmit={this.handleSubmit}>
-            <h1 className="sign_Title">SIGNUP PAGE</h1>
-            <p className="intro_text">It will be quick</p>
+            <h1 className="sign_Title">EDIT PROFIL</h1>
+            <h1 style={{ color: "green", textAlign: "center" }}>
+              {feedbackUser}
+            </h1>
             <div className="form_field">
               <label className="label" htmlFor="firstName">
                 First Name
@@ -56,7 +58,7 @@ export default class SignUp extends Component {
                 type="text"
                 className="input"
                 name="firstName"
-                placeholder="firstname"
+                value={firstName}
                 onChange={this.handleInput}
               />
             </div>
@@ -69,7 +71,7 @@ export default class SignUp extends Component {
                 type="text"
                 className="input"
                 name="lastName"
-                placeholder="lastname"
+                value={lastName}
                 onChange={this.handleInput}
               />
             </div>
@@ -82,34 +84,18 @@ export default class SignUp extends Component {
                 type="email"
                 className="input"
                 name="mail"
-                placeholder="email"
-                onChange={this.handleInput}
-              />
-            </div>
-
-            <div className="form_field">
-              <label className="label" htmlFor="password">
-                Password
-              </label>
-              <input
-                type="password"
-                className="input"
-                name="password"
-                placeholder="******"
+                value={mail}
                 onChange={this.handleInput}
               />
             </div>
             <button className="input_send button is-link auth_btn">
-              Sign Up
+              Modify my profil
             </button>
           </form>
-        </div>
-
-        <div className="outro_text">
-          <p>Already have an account ?</p>
-          <Link to={"/LogIn"}>Login here</Link>
         </div>
       </React.Fragment>
     );
   }
 }
+
+export default EditProfil;
