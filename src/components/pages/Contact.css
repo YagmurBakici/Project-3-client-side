@@ -36,3 +36,17 @@
   text-align: center;
   color: #55c9d8;
 }
+
+.form_Container {
+  width: 50vw !important;
+  margin: 8.5rem auto 3rem;
+  border: 2.3px solid rgb(85, 201, 215);
+  border-radius: 25px;
+  height: 100%;
+  padding: 7vh;
+}
+@media only screen and (max-width: 900px) {
+  .form_Container {
+    width: 80vw !important;
+  }
+}

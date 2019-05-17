@@ -7,6 +7,24 @@
 }
 button {
   cursor: pointer;
+  display: block;
+  position: relative;
+  margin: 5vh auto 0;
+  width: 30%;
+  border-radius: 1vh;
+  background-color: #55c9d8;
+  color: white;
+}
+button:hover {
+  background-color: #f18268;
+  color: white;
+}
+.title {
+  text-align: center;
+  color: #f18268 !important;
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  line-height: 1.125;
 }
 
 /* .my-modal-form {
