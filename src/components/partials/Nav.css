@@ -7,6 +7,7 @@
   width: 100% !important;
   height: 6rem !important;
   box-shadow: 0 4px 6px -6px;
+  /* visibility: hidden; */
 }
 .button.is-primary {
   background-color: #55c9d8 !important;

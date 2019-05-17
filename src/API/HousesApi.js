@@ -2,7 +2,12 @@ import axios from "axios";
 
 const APIurl = process.env.REACT_APP_BACKEND_URL + "/housing";
 
-export const createNewHouse = infos => axios.post(`${APIurl}/create`, infos);
+export const createNewHouse = infos => {
+  console.log("here inside createNewHouse Function");
+  // const { name, description, bedrooms, monthlyRent } = infos;
+  // console.log(name);
+  return axios.post(`${APIurl}/create`, infos);
+};
 
 export const getAllHouse = () => axios.get(APIurl);
 
