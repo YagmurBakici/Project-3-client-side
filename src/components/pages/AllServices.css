@@ -9,6 +9,12 @@
   overflow-y: scroll;
   margin-top: 0;
 }
+
+.step2_Container {
+  max-height: 80vh;
+  overflow-y: scroll;
+  margin-top: 0;
+}
 .step1_Container,
 .step2_Container {
   max-height: 100vh;
