@@ -1,0 +1,26 @@
+.admin_page_Container{
+    position: relative;
+    top: 8rem;
+}
+
+.admin_page_Title{
+    font-size: 2rem;    
+    text-align: center;
+}
+
+.cities_Container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.housing_Container{
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    min-height: 15vh;
+    height: auto;
+    margin-bottom: 20vh!important;
+
+
+}   
